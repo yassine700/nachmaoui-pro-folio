@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SeoRouteImport } from './routes/seo'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as AppsIndexRouteImport } from './routes/apps.index'
 import { Route as AppsTeleporteurRouteImport } from './routes/apps.teleporteur'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
@@ -50,6 +51,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppsIndexRoute = AppsIndexRouteImport.update({
   id: '/apps/',
   path: '/apps/',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/thank-you': typeof ThankYouRoute
   '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
   '/apps/': typeof AppsIndexRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/thank-you': typeof ThankYouRoute
   '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
   '/apps': typeof AppsIndexRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/thank-you': typeof ThankYouRoute
   '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
   '/apps/': typeof AppsIndexRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/seo'
     | '/services'
     | '/sitemap.xml'
+    | '/thank-you'
     | '/apps/teleporteur'
     | '/work/$slug'
     | '/apps/'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/seo'
     | '/services'
     | '/sitemap.xml'
+    | '/thank-you'
     | '/apps/teleporteur'
     | '/work/$slug'
     | '/apps'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/seo'
     | '/services'
     | '/sitemap.xml'
+    | '/thank-you'
     | '/apps/teleporteur'
     | '/work/$slug'
     | '/apps/'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   SeoRoute: typeof SeoRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ThankYouRoute: typeof ThankYouRoute
   AppsTeleporteurRoute: typeof AppsTeleporteurRoute
   WorkSlugRoute: typeof WorkSlugRoute
   AppsIndexRoute: typeof AppsIndexRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/apps/': {
       id: '/apps/'
       path: '/apps'
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   SeoRoute: SeoRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ThankYouRoute: ThankYouRoute,
   AppsTeleporteurRoute: AppsTeleporteurRoute,
   WorkSlugRoute: WorkSlugRoute,
   AppsIndexRoute: AppsIndexRoute,

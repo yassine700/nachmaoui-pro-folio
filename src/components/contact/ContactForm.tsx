@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+import { AlertCircle, Loader2, Send } from "lucide-react";
 import { PROJECT_TYPES } from "@/data/site";
 import { submitContactForm } from "@/lib/contact-fn";
 
 type Errors = Partial<Record<"name" | "email" | "projectType" | "message", string>>;
 
 export function ContactForm() {
+  const navigate = useNavigate();
   const [errors, setErrors] = useState<Errors>({});
   const [serverError, setServerError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
 
   // Form field state
   const [name, setName] = useState("");
@@ -36,7 +37,6 @@ export function ContactForm() {
     setWebsite("");
     setErrors({});
     setServerError(null);
-    setSent(false);
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -80,7 +80,8 @@ export function ContactForm() {
       });
 
       if (response.success) {
-        setSent(true);
+        // Confirmed successful delivery by server / Resend -> redirect to dedicated Thank You page
+        await navigate({ to: "/thank-you" });
       } else {
         setServerError(response.error || "Failed to send message. Please try again.");
         if (response.fieldErrors) {
@@ -95,35 +96,6 @@ export function ContactForm() {
     } finally {
       setIsSubmitting(false);
     }
-  }
-
-  if (sent) {
-    return (
-      <div
-        role="status"
-        className="rounded-2xl border border-hairline bg-card/80 p-8 shadow-xs sm:p-12"
-      >
-        <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-          <CheckCircle2 className="size-6" aria-hidden="true" />
-        </div>
-        <h2 className="mt-6 font-display text-2xl md:text-3xl">
-          Thank you for contacting me.
-        </h2>
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
-          Your message has been received. I&apos;ll review the details of your project and get back
-          to you as soon as possible.
-        </p>
-        <div className="mt-8 border-t border-hairline pt-6">
-          <button
-            type="button"
-            onClick={resetForm}
-            className="editorial-link text-sm font-medium"
-          >
-            Send another message <span aria-hidden="true">&rarr;</span>
-          </button>
-        </div>
-      </div>
-    );
   }
 
   return (
