@@ -10,6 +10,12 @@ import fcc1 from "@/assets/shots/floorcoatingcontractors-1.jpg.asset.json";
 import fcc2 from "@/assets/shots/floorcoatingcontractors-2.jpg.asset.json";
 import hfr1 from "@/assets/shots/homefurnacereplacement-1.jpg.asset.json";
 import hfr2 from "@/assets/shots/homefurnacereplacement-2.jpg.asset.json";
+import chandeluxeM from "@/assets/shots/chandeluxe-m.jpg.asset.json";
+import goutdeparfumM from "@/assets/shots/goutdeparfum-m.jpg.asset.json";
+import gpmM from "@/assets/shots/globalportfoliomanagement-m.jpg.asset.json";
+import atrM from "@/assets/shots/affordabletransmissionrepair-m.jpg.asset.json";
+import fccM from "@/assets/shots/floorcoatingcontractors-m.jpg.asset.json";
+import hfrM from "@/assets/shots/homefurnacereplacement-m.jpg.asset.json";
 
 export type ProjectCategory =
   | "Website"
@@ -64,6 +70,8 @@ export type Project = {
   preview?: ProjectPreview;
   /** TODO: replace with real screenshots. Empty array renders labelled placeholders. */
   gallery: { src: string; alt: string; caption?: string }[];
+  /** Real mobile screenshot shown inside the phone frame, when available. */
+  mobileShot?: { src: string; alt: string };
   /** Only set when the real URL is confirmed — the live CTA depends on it. */
   liveUrl?: string;
   githubUrl?: string;
@@ -123,6 +131,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://chandeluxe.ma",
+    mobileShot: {
+      src: chandeluxeM.url,
+      alt: "Chandeluxe.ma homepage on a phone",
+    },
     featured: true,
     status: "live",
   },
@@ -176,6 +188,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://goutdeparfum.com",
+    mobileShot: {
+      src: goutdeparfumM.url,
+      alt: "GoutDeParfum.com homepage on a phone",
+    },
     featured: true,
     status: "live",
   },
@@ -229,6 +245,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://globalportfoliomanagement.com",
+    mobileShot: {
+      src: gpmM.url,
+      alt: "GlobalPortfolioManagement.com homepage on a phone",
+    },
     status: "live",
   },
   {
@@ -318,6 +338,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://affordabletransmissionrepair.com",
+    mobileShot: {
+      src: atrM.url,
+      alt: "affordabletransmissionrepair.com homepage on a phone",
+    },
     status: "live",
   },
   {
@@ -368,6 +392,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://floorcoatingcontractors.com",
+    mobileShot: {
+      src: fccM.url,
+      alt: "floorcoatingcontractors.com coating systems section on a phone",
+    },
     status: "live",
   },
   {
@@ -418,6 +446,10 @@ export const projects: Project[] = [
       },
     ],
     liveUrl: "https://homefurnacereplacement.com",
+    mobileShot: {
+      src: hfrM.url,
+      alt: "homefurnacereplacement.com homepage on a phone",
+    },
     status: "live",
   },
 ];
