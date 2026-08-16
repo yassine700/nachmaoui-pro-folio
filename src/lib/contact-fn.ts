@@ -29,13 +29,22 @@ function getSecret(key: string): string | undefined {
     return cfVal.trim();
   }
 
-  // 2. Local Node.js / Vite process.env
+  // 2. Local Node.js process.env (checks both KEY and VITE_KEY)
   if (typeof process !== "undefined" && process.env) {
-    const nodeVal = process.env[key];
+    const nodeVal = process.env[key] || process.env[`VITE_${key}`];
     if (typeof nodeVal === "string" && nodeVal.trim().length > 0) {
       return nodeVal.trim();
     }
   }
+
+  // 3. Vite import.meta.env
+  try {
+    const metaEnv = (import.meta as unknown as { env?: Record<string, string> }).env;
+    const metaVal = metaEnv?.[key] || metaEnv?.[`VITE_${key}`];
+    if (typeof metaVal === "string" && metaVal.trim().length > 0) {
+      return metaVal.trim();
+    }
+  } catch {}
 
   return undefined;
 }
