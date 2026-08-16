@@ -153,7 +153,54 @@
   * {
     border-color: var(--color-border);
   }
+}
 
+/*
+ * Project preview tones. Each tone gives a CSS-drawn website mockup an
+ * industry-appropriate tint without hardcoding colors in components.
+ */
+[data-preview-tone] {
+  --preview-tint: var(--surface);
+  --preview-ink: var(--foreground);
+  --preview-brand: var(--primary);
+}
+[data-preview-tone="warm"] {
+  --preview-tint: oklch(0.95 0.03 78);
+  --preview-ink: oklch(0.27 0.04 60);
+  --preview-brand: oklch(0.62 0.13 62);
+}
+[data-preview-tone="editorial"] {
+  --preview-tint: oklch(0.95 0.02 20);
+  --preview-ink: oklch(0.26 0.03 20);
+  --preview-brand: oklch(0.52 0.11 18);
+}
+[data-preview-tone="navy"] {
+  --preview-tint: oklch(0.93 0.02 250);
+  --preview-ink: oklch(0.24 0.04 254);
+  --preview-brand: oklch(0.42 0.1 254);
+}
+[data-preview-tone="outdoor"] {
+  --preview-tint: oklch(0.94 0.04 150);
+  --preview-ink: oklch(0.26 0.04 155);
+  --preview-brand: oklch(0.48 0.11 155);
+}
+[data-preview-tone="automotive"] {
+  --preview-tint: oklch(0.93 0.01 250);
+  --preview-ink: oklch(0.22 0.02 250);
+  --preview-brand: oklch(0.55 0.17 30);
+}
+[data-preview-tone="industrial"] {
+  --preview-tint: oklch(0.94 0.01 220);
+  --preview-ink: oklch(0.25 0.02 230);
+  --preview-brand: oklch(0.55 0.12 200);
+}
+[data-preview-tone="heat"] {
+  --preview-tint: oklch(0.95 0.035 60);
+  --preview-ink: oklch(0.25 0.03 45);
+  --preview-brand: oklch(0.6 0.16 42);
+}
+
+@layer base {
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

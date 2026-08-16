@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { BrowserFrame } from "../shared/BrowserFrame";
+import { SitePreview } from "../shared/SitePreview";
 import { STATUS_LABEL, type Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -18,8 +19,18 @@ export function ProjectCard({ project }: { project: Project }) {
           label={project.domain ?? "Details to be added"}
           image={project.gallery[0]}
           className="transition-colors group-hover:border-primary/50"
-        />
+        >
+          {project.preview ? (
+            <SitePreview preview={project.preview} domain={project.domain} compact />
+          ) : undefined}
+        </BrowserFrame>
       </Link>
+
+      {!project.gallery[0] && project.preview ? (
+        <p className="mt-3 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+          Design mockup — not a live site screenshot
+        </p>
+      ) : null}
 
       <div className="mt-6 flex flex-1 flex-col">
         <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
