@@ -16,6 +16,9 @@ import gpmM from "@/assets/shots/globalportfoliomanagement-m.jpg.asset.json";
 import atrM from "@/assets/shots/affordabletransmissionrepair-m.jpg.asset.json";
 import fccM from "@/assets/shots/floorcoatingcontractors-m.jpg.asset.json";
 import hfrM from "@/assets/shots/homefurnacereplacement-m.jpg.asset.json";
+import osc1 from "@/assets/shots/outdoorstaging-1.jpg.asset.json";
+import osc2 from "@/assets/shots/outdoorstaging-2.jpg.asset.json";
+import oscM from "@/assets/shots/outdoorstaging-m.jpg.asset.json";
 
 export type ProjectCategory =
   | "Website"
@@ -252,44 +255,61 @@ export const projects: Project[] = [
     status: "live",
   },
   {
-    title: "Outdour Staging Company",
-    domain: "OutdourStagingCompany.com",
-    slug: "outdourstagingcompany",
+    title: "Outdoor Staging Company",
+    domain: "OutdoorStagingCompany.com",
+    slug: "outdoorstagingcompany",
     kind: "web",
-    category: "Website Concept / Local Business",
+    category: "Website Project — Real Estate Staging",
     summary:
-      "A domain-based website concept for an outdoor staging and event setup business, structured around services and quote requests.",
+      "A domain-based website project for a boutique outdoor staging studio working with luxury real estate listings.",
     overview:
-      "OutdourStagingCompany.com is a website concept developed on my own domain for an outdoor staging and event setup business. It is built the way a local service business site should be: what you do, where you do it, and how to request a quote — reachable from anywhere on the site.",
-    role: "Concept, UI/UX design, front-end development, local SEO fundamentals.",
+      "OutdoorStagingCompany.com is a live website I designed and built on my own domain for a boutique studio that stages patios, gardens, pool decks and estates for luxury real estate listings. The site leads with the visual result — the photograph that sells the home — then explains services, process and how to book a consultation.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
-      "Make a service business understandable in one screen and turn a quote request into a two-tap action on a phone.",
+      "Position an outdoor staging studio as a premium service for agents and homeowners, and make booking a consultation the obvious next step.",
     designApproach:
-      "Practical, high-legibility layout: clear service cards, strong section headings, visible contact affordances, and space reserved for real project photography once available.",
+      "Editorial luxury direction: a serif display face with italic emphasis, deep green and gold on warm off-white, generous whitespace, and large estate photography carrying the hero and portfolio.",
     developmentApproach:
-      "Front-end build with a persistent quote call-to-action, reusable service blocks, and accessible form markup ready for a real submission endpoint.",
+      "Component-driven front-end with reusable service, portfolio and FAQ blocks, a persistent consultation call-to-action, semantic markup, and image handling tuned for large photography.",
     keySections: [
-      "Home with service summary",
-      "Services detail",
-      "Service area",
-      "Project gallery",
-      "Quote request / contact",
+      "Hero with featured project",
+      "Services",
+      "Portfolio",
+      "Process",
+      "About and FAQ",
+      "Consultation booking / contact",
     ],
     responsive:
-      "Mobile-first with a sticky call-to-action bar, stacked service cards, and a wider gallery grid on desktop.",
+      "Mobile-first stacked layout with tap-to-call, moving to a split hero and multi-column portfolio grid on desktop.",
     seoWork:
-      "Local SEO fundamentals: consistent business details, location-relevant page structure, descriptive headings, per-page metadata, and image alt text.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Local SEO Fundamentals"],
+      "On-page SEO fundamentals: descriptive headings, per-page metadata, consistent business details, service-oriented copy, and alt text on every photograph.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "On-page SEO"],
     preview: {
-      headline: "Outdoor staging, built and packed down for you",
-      tagline: "Stages, platforms and event setup",
-      nav: ["Services", "Service area", "Gallery", "Quote"],
-      cta: "Request a quote",
-      blocks: ["Stage build", "Event setup", "Service area"],
+      headline: "Outdoor spaces designed to sell homes beautifully",
+      tagline: "Boutique outdoor staging for luxury listings",
+      nav: ["Services", "Portfolio", "Process", "Contact"],
+      cta: "Book consultation",
+      blocks: ["Patios & pool decks", "Gardens", "Estates"],
       tone: "outdoor",
     },
-    gallery: [],
-    status: "concept",
+    gallery: [
+      {
+        src: osc1.url,
+        alt: "OutdoorStagingCompany.com homepage hero with a staged estate pool deck",
+        caption: "Hero: editorial headline beside the staged result",
+      },
+      {
+        src: osc2.url,
+        alt: "OutdoorStagingCompany.com services and portfolio sections",
+        caption: "Services and portfolio further down the page",
+      },
+    ],
+    mobileShot: {
+      src: oscM.url,
+      alt: "OutdoorStagingCompany.com homepage on a phone",
+    },
+    liveUrl: "https://outdoorstagingcompany.com",
+    status: "live",
   },
   {
     title: "Affordable Transmission Repair",
