@@ -110,6 +110,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0.16 0.02 264);
   --foreground: oklch(0.984 0.003 247.858);
   --surface: oklch(0.21 0.024 264);

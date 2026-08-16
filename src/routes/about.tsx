@@ -7,7 +7,7 @@ import { SKILLS } from "@/data/site";
 
 const TITLE = "About Yassine Nachmaoui — Freelance Web Designer & Developer";
 const DESCRIPTION =
-  "Morocco-based freelance web designer and developer combining clean design, solid web fundamentals and practical business thinking.";
+  "Freelance web designer and developer helping local businesses get professional, fast, and SEO-ready websites live in a week.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -28,11 +28,11 @@ function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title={<>I&apos;m Yassine. I build things for the web.</>}
+        title={<>I&apos;m Yassine. I build websites for businesses.</>}
         meta={[
           { term: "Focus", value: "Web design, development, SEO fundamentals" },
-          { term: "Currently", value: "Mobile MVP concepts and React apps" },
-          { term: "Based in", value: "Morocco, working remotely" },
+          { term: "Specialty", value: "Fast turnaround for local businesses" },
+          { term: "Working style", value: "Direct, collaborative, remote" },
         ]}
       />
 
@@ -41,19 +41,18 @@ function AboutPage() {
           <p className="eyebrow lg:pt-3">Introduction</p>
           <div className="max-w-prose space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
-              I'm a Morocco-based freelance web designer and developer interested in creating useful,
-              modern and practical digital experiences.
+              I'm a freelance web designer and developer focused on helping local businesses,
+              contractors, and service providers get a high-quality online presence without the
+              unnecessary overhead or agency price tag.
             </p>
             <p>
-              My focus is combining clean design, solid web fundamentals and practical business
-              thinking — a website should be pleasant to use, straightforward to maintain, and built
-              so search engines can read it properly.
+              My approach is practical and straightforward: clean design that represents your
+              business well, solid front-end code that works fast on phones and desktops, and
+              essential SEO foundations so customers can find and contact you easily.
             </p>
             <p>
-              I'm continuously developing my skills in modern web technologies, application
-              development and SEO. The projects in my portfolio are the honest record of that: real
-              domains, real design and development decisions, clearly labelled where something is
-              still a concept.
+              Whether you need a full multi-page business website or a focused landing page to drive
+              calls and quote requests, I deliver working websites quickly and reliably.
             </p>
           </div>
         </div>

@@ -18,8 +18,8 @@ export function SiteFooter() {
           <div>
             <p className="text-sm tracking-[0.28em] uppercase">Nachmaoui</p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Freelance web design, development, mobile MVP concepts and SEO fundamentals. Based in
-              Morocco, working remotely.
+              Professional websites for local businesses — built in a week, without the agency price
+              tag. Web design, responsive development, and SEO foundations.
             </p>
           </div>
 

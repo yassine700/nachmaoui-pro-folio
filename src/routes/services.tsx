@@ -5,9 +5,9 @@ import { Section, SectionHeading } from "@/components/layout/Section";
 import { ContactCta } from "@/components/shared/ContactCta";
 import { PROCESS, SERVICES } from "@/data/site";
 
-const TITLE = "Services — Websites, Landing Pages, Apps & SEO | Yassine Nachmaoui";
+const TITLE = "Services — Websites, Landing Pages & SEO | Yassine Nachmaoui";
 const DESCRIPTION =
-  "Website design and development, landing pages, web app and mobile MVP concepts, and SEO foundations — with a clear four-step process.";
+  "Professional websites and landing pages for local businesses, built in a week with essential SEO foundations and responsive front-end development.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -29,7 +29,7 @@ function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title={<>What I can help you with</>}
-        lead="Websites that look good, work well, and get found. I design and build modern websites and digital experiences for businesses that want a stronger online presence."
+        lead="Professional websites for local businesses — designed cleanly, built to load fast on every screen, and delivered in a week without the agency price tag."
       />
 
       <Section label="Service detail" divider={false}>

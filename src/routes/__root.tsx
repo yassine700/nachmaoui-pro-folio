@@ -109,7 +109,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           knowsAbout: [
             "Web Design",
             "Responsive Development",
-            "Mobile App MVP Development",
             "SEO Fundamentals",
           ],
         }),
@@ -126,6 +125,16 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/*
+         * Inline script runs synchronously before any paint to apply the
+         * correct theme class. This prevents flash-of-wrong-theme on load.
+         * It reads localStorage and falls back to prefers-color-scheme.
+         */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
         <HeadContent />
       </head>
       <body>

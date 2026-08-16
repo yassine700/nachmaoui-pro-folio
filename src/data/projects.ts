@@ -1,24 +1,28 @@
-import chandeluxe1 from "@/assets/shots/chandeluxe-1.jpg.asset.json";
-import chandeluxe2 from "@/assets/shots/chandeluxe-2.jpg.asset.json";
-import goutdeparfum1 from "@/assets/shots/goutdeparfum-1.jpg.asset.json";
-import goutdeparfum2 from "@/assets/shots/goutdeparfum-2.jpg.asset.json";
-import gpm1 from "@/assets/shots/globalportfoliomanagement-1.jpg.asset.json";
-import gpm2 from "@/assets/shots/globalportfoliomanagement-2.jpg.asset.json";
-import atr1 from "@/assets/shots/affordabletransmissionrepair-1.jpg.asset.json";
-import atr2 from "@/assets/shots/affordabletransmissionrepair-2.jpg.asset.json";
-import fcc1 from "@/assets/shots/floorcoatingcontractors-1.jpg.asset.json";
-import fcc2 from "@/assets/shots/floorcoatingcontractors-2.jpg.asset.json";
-import hfr1 from "@/assets/shots/homefurnacereplacement-1.jpg.asset.json";
-import hfr2 from "@/assets/shots/homefurnacereplacement-2.jpg.asset.json";
-import chandeluxeM from "@/assets/shots/chandeluxe-m.jpg.asset.json";
-import goutdeparfumM from "@/assets/shots/goutdeparfum-m.jpg.asset.json";
-import gpmM from "@/assets/shots/globalportfoliomanagement-m.jpg.asset.json";
-import atrM from "@/assets/shots/affordabletransmissionrepair-m.jpg.asset.json";
-import fccM from "@/assets/shots/floorcoatingcontractors-m.jpg.asset.json";
-import hfrM from "@/assets/shots/homefurnacereplacement-m.jpg.asset.json";
-import osc1 from "@/assets/shots/outdoorstaging-1.jpg.asset.json";
-import osc2 from "@/assets/shots/outdoorstaging-2.jpg.asset.json";
-import oscM from "@/assets/shots/outdoorstaging-m.jpg.asset.json";
+// Project screenshot paths — images are stored in public/images/shots/ and
+// served as static assets by Vite. Previously these were Lovable CDN assets
+// (/__l5e/assets-v1/…) that only resolved inside the Lovable sandbox; the
+// actual files have been downloaded and committed to public/images/shots/.
+const chandeluxe1 = { url: "/images/shots/chandeluxe-1.jpg" };
+const chandeluxe2 = { url: "/images/shots/chandeluxe-2.jpg" };
+const goutdeparfum1 = { url: "/images/shots/goutdeparfum-1.jpg" };
+const goutdeparfum2 = { url: "/images/shots/goutdeparfum-2.jpg" };
+const gpm1 = { url: "/images/shots/globalportfoliomanagement-1.jpg" };
+const gpm2 = { url: "/images/shots/globalportfoliomanagement-2.jpg" };
+const atr1 = { url: "/images/shots/affordabletransmissionrepair-1.jpg" };
+const atr2 = { url: "/images/shots/affordabletransmissionrepair-2.jpg" };
+const fcc1 = { url: "/images/shots/floorcoatingcontractors-1.jpg" };
+const fcc2 = { url: "/images/shots/floorcoatingcontractors-2.jpg" };
+const hfr1 = { url: "/images/shots/homefurnacereplacement-1.jpg" };
+const hfr2 = { url: "/images/shots/homefurnacereplacement-2.jpg" };
+const chandeluxeM = { url: "/images/shots/chandeluxe-m.jpg" };
+const goutdeparfumM = { url: "/images/shots/goutdeparfum-m.jpg" };
+const gpmM = { url: "/images/shots/globalportfoliomanagement-m.jpg" };
+const atrM = { url: "/images/shots/affordabletransmissionrepair-m.jpg" };
+const fccM = { url: "/images/shots/floorcoatingcontractors-m.jpg" };
+const hfrM = { url: "/images/shots/homefurnacereplacement-m.jpg" };
+const osc1 = { url: "/images/shots/outdoorstaging-1.jpg" };
+const osc2 = { url: "/images/shots/outdoorstaging-2.jpg" };
+const oscM = { url: "/images/shots/outdoorstaging-m.jpg" };
 
 export type ProjectCategory =
   | "Website"

@@ -8,21 +8,20 @@ export function AboutPreview() {
         <p className="eyebrow lg:pt-4">About</p>
         <div>
           <h2 className="max-w-2xl text-[2rem] leading-[1.06] md:text-5xl">
-            I&apos;m Yassine. I build things for the web.
+            I build professional websites for businesses.
           </h2>
           <div className="mt-10 max-w-prose space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
-              I&apos;m a Morocco-based freelance web designer and developer interested in creating
-              useful, modern and practical digital experiences.
+              I help local businesses, trades, and service providers get a modern, responsive
+              website up and running in a week — without agency-sized budgets.
             </p>
             <p>
-              My focus is combining clean design, solid web fundamentals and practical business
-              thinking — websites that are pleasant to use, straightforward to maintain and readable
-              by search engines.
+              Every site includes clean design, fast-loading responsive code, and the essential
+              on-page SEO foundations needed to help customers find you.
             </p>
           </div>
           <Link to="/about" className="editorial-link mt-10 text-sm">
-            More about me <span aria-hidden="true">&rarr;</span>
+            More about my approach <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>

@@ -3,29 +3,46 @@ import { Container } from "../layout/Container";
 
 export function Hero() {
   return (
-    <section id="top" className="pt-20 pb-16 md:pt-32 md:pb-24">
+    <section id="top" className="pt-14 pb-16 sm:pt-20 md:pt-24 md:pb-24 lg:pt-28 lg:pb-28">
       <Container>
         <div className="reveal">
-          <p className="eyebrow">Yassine Nachmaoui — Web Designer &amp; Developer</p>
+          <div className="grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            {/* Large Editorial Portrait */}
+            <div className="w-full max-w-sm sm:max-w-md md:max-w-none">
+              <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_1px_0_0_var(--hairline)] md:rounded-3xl">
+                <img
+                  src="/images/yassine-nachmaoui.jpg"
+                  alt="Yassine Nachmaoui — Freelance Web Designer and Developer"
+                  width={720}
+                  height={900}
+                  className="size-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
 
-          <h1 className="mt-10 max-w-5xl text-[2.75rem] leading-[1] md:text-[5rem] lg:text-[6rem]">
-            I build websites and digital experiences for{" "}
-            <span className="italic text-muted-foreground">businesses.</span>
-          </h1>
+            {/* Hero Editorial Content */}
+            <div className="flex flex-col justify-center">
+              <p className="eyebrow">Websites for Local Businesses · 1-Week Turnaround</p>
 
-          <div className="mt-14 grid gap-10 border-t border-hairline pt-10 md:grid-cols-[1.3fr_1fr] md:items-end">
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Web design, development, mobile MVPs and SEO fundamentals — built with a focus on
-              clarity, usability and performance.
-            </p>
+              <h1 className="mt-6 text-[2.4rem] leading-[1.04] sm:text-[3.1rem] md:text-[3.6rem] lg:text-[4.5rem] lg:leading-[0.98]">
+                Professional websites for local businesses —{" "}
+                <span className="italic text-muted-foreground">built in a week, without the agency price tag.</span>
+              </h1>
 
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-4 md:justify-end">
-              <Link to="/work" className="editorial-link text-base">
-                View my work <span aria-hidden="true">&rarr;</span>
-              </Link>
-              <Link to="/contact" className="editorial-link text-base text-muted-foreground">
-                Let&apos;s work together <span aria-hidden="true">&rarr;</span>
-              </Link>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mt-8 lg:text-xl">
+                I help local businesses, contractors, trades, and service providers get a fast, modern, and SEO-ready website live quickly — without spending an arm and a leg.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-hairline pt-8 lg:mt-10">
+                <Link to="/work" className="editorial-link text-base font-medium">
+                  View recent projects <span aria-hidden="true">&rarr;</span>
+                </Link>
+                <Link to="/contact" className="editorial-link text-base text-muted-foreground">
+                  Get your site live <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -33,3 +50,6 @@ export function Hero() {
     </section>
   );
 }
+
+
+

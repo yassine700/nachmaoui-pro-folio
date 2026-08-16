@@ -1,26 +1,26 @@
 // TODO: replace with your real email address before sending this portfolio to clients.
-export const CONTACT_EMAIL = "hello@nachmaoui.com";
+export const CONTACT_EMAIL = "yassine@nachmaoui.com";
 
 export const SERVICES = [
   {
     title: "Website Design",
     description:
-      "Multi-page business websites designed around what your visitors need to decide: clear structure, readable typography, and pages that work as well on a phone as on a laptop.",
+      "Professional, responsive websites designed around the business, its customers, and the actions that matter.",
+  },
+  {
+    title: "Website Development",
+    description:
+      "Clean, responsive implementation that works across phones, tablets, and desktops, with a focus on speed, accessibility, and maintainability.",
   },
   {
     title: "Landing Pages",
     description:
-      "Single-purpose pages built for one action — a booking, a quote request, a signup — with focused copy structure, fast loading, and a form that is easy to complete.",
-  },
-  {
-    title: "Mobile App MVP Development",
-    description:
-      "Turning an app idea into a concrete first version: user flows, screen design, and a working interface you can show, test, and refine before investing further.",
+      "Focused pages designed around one goal: generating a call, quote request, booking, enquiry, or other action.",
   },
   {
     title: "SEO Foundations",
     description:
-      "The technical and structural basics done properly from the start — semantic markup, headings, titles and descriptions, clean URLs, image optimisation, and mobile performance.",
+      "The essential on-page SEO foundations every business website should have, including semantic structure, metadata, headings, image alt text, internal linking, sitemap and technical basics.",
   },
 ] as const;
 
@@ -69,7 +69,6 @@ export const PROCESS = [
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
-  { to: "/apps", label: "Apps" },
   { to: "/seo", label: "SEO" },
   { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
@@ -99,9 +98,10 @@ export const SKILLS = [
 ] as const;
 
 export const PROJECT_TYPES = [
-  "Website design & development",
-  "Landing page",
-  "Web app / MVP concept",
-  "SEO foundations",
-  "Something else",
+  "Website Design",
+  "Website Development",
+  "Landing Page",
+  "SEO Foundations",
+  "Website Design + SEO",
+  "Other",
 ] as const;
