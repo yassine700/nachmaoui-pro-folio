@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "../layout/Container";
 import { Section, SectionHeading } from "../layout/Section";
 import { BrowserFrame, PhoneFrame } from "../shared/BrowserFrame";
+import { SitePreview } from "../shared/SitePreview";
 import { ContactCta } from "../shared/ContactCta";
 import { STATUS_LABEL, type Project } from "@/data/projects";
 
@@ -74,14 +75,28 @@ export function CaseStudy({
           label={project.domain ?? "Preview"}
           image={project.gallery[0]}
           aspect="aspect-16/9"
-        />
+        >
+          {project.preview ? (
+            <SitePreview preview={project.preview} domain={project.domain} />
+          ) : undefined}
+        </BrowserFrame>
+        {!project.gallery[0] && project.preview ? (
+          <p className="mt-4 text-sm text-muted-foreground">
+            Design mockup of the intended layout — real screenshots will replace it. This is a
+            portfolio presentation, not a claim of a live client website.
+          </p>
+        ) : null}
 
         <div className="mt-16 grid gap-10 md:grid-cols-[1.6fr_1fr] md:items-center">
           <BrowserFrame
             label="Desktop layout"
             image={project.gallery[1]}
             aspect="aspect-16/10"
-          />
+          >
+            {project.preview ? (
+              <SitePreview preview={project.preview} domain={project.domain} compact />
+            ) : undefined}
+          </BrowserFrame>
           <PhoneFrame title="Mobile layout" detail="Mobile presentation of the same page" />
         </div>
       </Section>
