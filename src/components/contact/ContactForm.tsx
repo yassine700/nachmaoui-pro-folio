@@ -5,7 +5,7 @@ import { PROJECT_TYPES } from "@/data/site";
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
 const FIELD =
-  "mt-2 w-full rounded-md border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/30";
+  "mt-2 w-full rounded-none border-0 border-b border-hairline bg-transparent px-0 py-3 text-base outline-none transition-colors focus-visible:border-foreground";
 
 export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
@@ -34,7 +34,7 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="rounded-xl border border-hairline bg-card p-8 text-center"
+        className="border-t border-hairline pt-8"
       >
         <CheckCircle2 className="mx-auto size-8 text-primary" aria-hidden="true" />
         <p className="mt-4 font-display text-2xl">Thank you — your details are ready to send.</p>
@@ -137,9 +137,9 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="justify-self-start rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+        className="editorial-link justify-self-start text-base"
       >
-        Send message
+        Send message <span aria-hidden="true">&rarr;</span>
       </button>
     </form>
   );

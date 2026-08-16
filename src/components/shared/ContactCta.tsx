@@ -1,35 +1,30 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { Section } from "../layout/Section";
 import { CONTACT_EMAIL } from "@/data/site";
 
 export function ContactCta({
   title = "Have a project in mind?",
-  text = "Tell me what you're building, and let's see how I can help.",
+  text = "Let's talk about what you're building.",
 }: {
   title?: string;
   text?: string;
 }) {
   return (
-    <Section tone="ink" label="Contact call to action">
-      <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <div className="max-w-xl">
-          <h2 className="text-3xl leading-[1.1] md:text-[2.75rem]">{title}</h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-foreground/75">{text}</p>
+    <Section label="Contact call to action">
+      <div className="grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
+        <div>
+          <h2 className="max-w-2xl text-[2.25rem] leading-[1.03] md:text-[4rem]">{title}</h2>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">{text}</p>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-ink-foreground px-6 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
-          >
-            Start a Project
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+        <div className="flex flex-wrap items-center gap-x-10 gap-y-4 md:justify-end">
+          <Link to="/contact" className="editorial-link text-base">
+            Start a project <span aria-hidden="true">&rarr;</span>
           </Link>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="inline-flex items-center gap-2 rounded-full border border-ink-foreground/25 px-6 py-3.5 text-sm font-medium transition-colors hover:border-ink-foreground/60"
+            className="editorial-link text-base text-muted-foreground"
           >
-            Email Me
+            Email me <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>

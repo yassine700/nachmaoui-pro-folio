@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Container } from "@/components/layout/Container";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/layout/Section";
-import { ProjectCard } from "@/components/work/ProjectCard";
+import { ProjectRow } from "@/components/work/ProjectRow";
 import { ContactCta } from "@/components/shared/ContactCta";
 import { webProjects } from "@/data/projects";
 
@@ -27,25 +27,21 @@ export const Route = createFileRoute("/work/")({
 function WorkIndex() {
   return (
     <>
-      <section className="bg-ink py-20 text-ink-foreground md:py-28">
-        <Container>
-          <div className="reveal max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.22em] text-ink-foreground/60">Work</p>
-            <h1 className="mt-6 text-[2.4rem] leading-[1.05] md:text-6xl">
-              Websites and digital products I've designed and built
-            </h1>
-            <p className="mt-8 text-lg leading-relaxed text-ink-foreground/75">
-              Domain-based website projects covering concept creation, UI/UX design, landing pages
-              and front-end development. Every project has its own case study.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHeader
+        eyebrow="Work"
+        title={<>Websites and digital products I&apos;ve designed and built</>}
+        lead="Domain-based website projects covering concept creation, UI/UX design, landing pages and front-end development. Every project has its own case study."
+        meta={[
+          { term: "Projects", value: String(webProjects.length) },
+          { term: "Disciplines", value: "Design · Development · SEO" },
+          { term: "Based in", value: "Morocco, working remotely" },
+        ]}
+      />
 
-      <Section label="All website projects">
-        <div className="grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-16">
-          {webProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+      <Section label="All website projects" divider={false}>
+        <div className="space-y-20 md:space-y-32">
+          {webProjects.map((project, i) => (
+            <ProjectRow key={project.slug} project={project} index={i} />
           ))}
         </div>
       </Section>

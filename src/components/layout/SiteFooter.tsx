@@ -4,51 +4,54 @@ import { CONTACT_EMAIL, NAV_LINKS, SOCIAL_LINKS } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink py-16 text-ink-foreground">
-      <Container className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <p className="font-display text-2xl">Nachmaoui.com</p>
-          <p className="mt-2 text-sm text-ink-foreground/60">Web Design · Web Apps · SEO Basics</p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-6 inline-block text-sm underline decoration-ink-foreground/30 underline-offset-4 transition-colors hover:decoration-ink-foreground"
-          >
-            {CONTACT_EMAIL}
-          </a>
+    <footer className="border-t border-hairline pt-20 pb-10">
+      <Container>
+        <p className="eyebrow">Get in touch</p>
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="editorial-link mt-6 block font-display text-[2rem] leading-tight break-words md:text-5xl"
+        >
+          {CONTACT_EMAIL}
+        </a>
+
+        <div className="mt-20 grid gap-12 border-t border-hairline pt-10 md:grid-cols-[1.6fr_1fr_1fr]">
+          <div>
+            <p className="text-sm tracking-[0.28em] uppercase">Nachmaoui</p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Freelance web design, development, mobile MVP concepts and SEO fundamentals. Based in
+              Morocco, working remotely.
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <p className="eyebrow">Pages</p>
+            <ul className="mt-5 space-y-3 text-sm">
+              {NAV_LINKS.filter((l) => l.to !== "/").map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="eyebrow">Elsewhere</p>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+              {SOCIAL_LINKS.map((item) => (
+                /* TODO: replace with your real profile URL. */
+                <li key={item.label}>{item.label} — link to be added</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <nav aria-label="Footer">
-          <p className="text-xs uppercase tracking-[0.16em] text-ink-foreground/50">Pages</p>
-          <ul className="mt-4 space-y-3 text-sm">
-            {NAV_LINKS.filter((l) => l.to !== "/").map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className="text-ink-foreground/75 transition-colors hover:text-ink-foreground"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-ink-foreground/50">Elsewhere</p>
-          <ul className="mt-4 space-y-3 text-sm">
-            {SOCIAL_LINKS.map((item) => (
-              <li key={item.label} className="text-ink-foreground/55">
-                {/* TODO: replace with your real profile URL. */}
-                {item.label} — link to be added
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Container>
-
-      <Container className="mt-14 border-t border-ink-foreground/15 pt-6">
-        <p className="text-xs text-ink-foreground/50">
-          © {new Date().getFullYear()} Yassine Nachmaoui. All rights reserved.
+        <p className="mt-16 text-xs text-muted-foreground">
+          © {new Date().getFullYear()} Yassine Nachmaoui
         </p>
       </Container>
     </footer>

@@ -1,34 +1,28 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { Section, SectionHeading } from "../layout/Section";
+import { Section } from "../layout/Section";
 
 export function AboutPreview() {
   return (
     <Section id="about" label="About">
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-        <div className="flex aspect-4/5 max-w-sm items-center justify-center rounded-xl border border-hairline bg-surface">
-          {/* TODO: replace with your professional portrait. */}
-          <p className="px-6 text-center text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-            Portrait placeholder
-          </p>
-        </div>
+      <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+        <p className="eyebrow lg:pt-4">About</p>
         <div>
-          <SectionHeading
-            eyebrow="About"
-            title="I'm Yassine. I build things for the web."
-            description="I'm a Morocco-based freelance web designer and developer interested in creating useful, modern and practical digital experiences."
-          />
-          <p className="mt-6 max-w-prose text-base leading-relaxed text-muted-foreground">
-            My focus is combining clean design, solid web fundamentals and practical business
-            thinking. I'm continuously developing my skills in modern web technologies, application
-            development and SEO.
-          </p>
-          <Link
-            to="/about"
-            className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-          >
-            More about me
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          <h2 className="max-w-2xl text-[2rem] leading-[1.06] md:text-5xl">
+            I&apos;m Yassine. I build things for the web.
+          </h2>
+          <div className="mt-10 max-w-prose space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              I&apos;m a Morocco-based freelance web designer and developer interested in creating
+              useful, modern and practical digital experiences.
+            </p>
+            <p>
+              My focus is combining clean design, solid web fundamentals and practical business
+              thinking — websites that are pleasant to use, straightforward to maintain and readable
+              by search engines.
+            </p>
+          </div>
+          <Link to="/about" className="editorial-link mt-10 text-sm">
+            More about me <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>

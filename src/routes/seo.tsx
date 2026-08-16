@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check } from "lucide-react";
 
-import { Container } from "@/components/layout/Container";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { ContactCta } from "@/components/shared/ContactCta";
 import { SEO_FUNDAMENTALS } from "@/data/site";
@@ -27,23 +26,11 @@ export const Route = createFileRoute("/seo")({
 function SeoPage() {
   return (
     <>
-      <section className="bg-ink py-20 text-ink-foreground md:py-28">
-        <Container>
-          <div className="reveal max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.22em] text-ink-foreground/60">
-              SEO Fundamentals
-            </p>
-            <h1 className="mt-6 text-[2.4rem] leading-[1.05] md:text-6xl">
-              I don't just build websites. I build them with search engines in mind.
-            </h1>
-            <p className="mt-8 text-lg leading-relaxed text-ink-foreground/75">
-              This is practical SEO knowledge applied during design and development — not an agency
-              service and not a ranking promise. Search visibility depends on many factors outside a
-              website's markup; what I can control is that the foundation is correct.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHeader
+        eyebrow="SEO fundamentals"
+        title={<>SEO fundamentals, built into the website.</>}
+        lead="Practical SEO knowledge applied during design and development — not an agency service and not a ranking promise. Search visibility depends on many factors outside a website's markup; what I can control is that the foundation is correct."
+      />
 
       <Section label="SEO checklist">
         <SectionHeading
@@ -51,20 +38,25 @@ function SeoPage() {
           title="The fundamentals, handled during the build"
           description="Every item below is part of how I build, not an upsell added afterwards."
         />
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SEO_FUNDAMENTALS.map((item) => (
-            <li key={item.title} className="rounded-xl border border-hairline bg-card p-6">
-              <div className="flex items-center gap-2.5">
-                <Check className="size-4 shrink-0 text-primary" aria-hidden="true" />
-                <h2 className="text-base font-medium">{item.title}</h2>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+        <ul className="mt-16">
+          {SEO_FUNDAMENTALS.map((item, i) => (
+            <li
+              key={item.title}
+              className="grid gap-3 border-t border-hairline py-7 md:grid-cols-[4rem_1fr_1.3fr] md:items-baseline md:gap-10"
+            >
+              <span className="font-display text-base text-muted-foreground">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h2 className="text-xl md:text-2xl">{item.title}</h2>
+              <p className="max-w-prose text-base leading-relaxed text-muted-foreground">
+                {item.detail}
+              </p>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section tone="surface" label="What I don't promise">
+      <Section label="What I don't promise">
         <SectionHeading
           eyebrow="Honest scope"
           title="What I don't claim"
