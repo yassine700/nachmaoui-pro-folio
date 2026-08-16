@@ -29,12 +29,7 @@ export function SitePreview({
         <span className="shrink-0 font-display text-[0.8rem] tracking-tight md:text-base">
           {domain ?? "Website"}
         </span>
-        <span
-          className={cn(
-            "hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-hidden whitespace-nowrap text-[0.6rem] uppercase tracking-[0.14em] opacity-70 md:text-[0.65rem]",
-            compact ? "@[34rem]:flex" : "sm:flex",
-          )}
-        >
+        <span className="hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-hidden whitespace-nowrap text-[0.6rem] uppercase tracking-[0.14em] opacity-70 sm:flex md:text-[0.65rem]">
           {preview.nav.slice(0, compact ? 3 : preview.nav.length).map((item) => (
             <span key={item}>{item}</span>
           ))}
