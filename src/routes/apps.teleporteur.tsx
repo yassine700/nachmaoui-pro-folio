@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
 
 import { Container } from "@/components/layout/Container";
 import { Section, SectionHeading } from "@/components/layout/Section";
@@ -41,32 +40,26 @@ export const Route = createFileRoute("/apps/teleporteur")({
 function TeleporteurPage() {
   return (
     <>
-      <section className="bg-ink py-16 text-ink-foreground md:py-24">
+      <section className="pt-16 pb-4 md:pt-24">
         <Container>
-          <Link
-            to="/apps"
-            className="inline-flex items-center gap-2 text-sm text-ink-foreground/70 underline-offset-4 hover:text-ink-foreground hover:underline"
-          >
-            <ArrowLeft className="size-4" aria-hidden="true" />
-            All app projects
+          <Link to="/apps" className="editorial-link text-sm text-muted-foreground">
+            <span aria-hidden="true">&larr;</span> All app projects
           </Link>
 
-          <div className="reveal mt-10 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <div className="reveal mt-12 grid items-end gap-12 lg:grid-cols-[1.15fr_1fr]">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-ink-foreground/60">
-                {TELEPORTEUR.label}
-              </p>
-              <h1 className="mt-6 text-[2.4rem] leading-[1.05] md:text-6xl">
+              <p className="eyebrow">{TELEPORTEUR.label}</p>
+              <h1 className="mt-8 text-[2.75rem] leading-[1] md:text-[5rem]">
                 {TELEPORTEUR.title}
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-foreground/75">
+              <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
                 {TELEPORTEUR.overview}
               </p>
-              <p className="mt-6 inline-block rounded-full border border-ink-foreground/25 px-4 py-2 text-xs uppercase tracking-[0.16em] text-ink-foreground/70">
+              <p className="mt-8 border-t border-hairline pt-6 text-xs tracking-[0.16em] uppercase text-muted-foreground">
                 {TELEPORTEUR.status}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 sm:gap-8">
               <PhoneFrame title="Customer booking" detail="Customer booking" />
               <PhoneFrame title="Driver feed" detail="Driver feed" />
             </div>
@@ -80,11 +73,11 @@ function TeleporteurPage() {
           title="Problem, product and business model"
           description="Everything below describes design and product decisions. There are no users, revenue or performance figures to report."
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-16 grid gap-12 md:grid-cols-2">
           {TELEPORTEUR.blocks.map((block) => (
-            <article key={block.title} className="rounded-xl border border-hairline bg-card p-7">
-              <h3 className="text-xl">{block.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{block.body}</p>
+            <article key={block.title} className="border-t border-hairline pt-6">
+              <h3 className="text-2xl">{block.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{block.body}</p>
             </article>
           ))}
         </div>
@@ -96,7 +89,7 @@ function TeleporteurPage() {
           title="Mobile screens"
           description="Final mockups to be added — each frame below is a clearly labelled placeholder for the screen it represents."
         />
-        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {TELEPORTEUR.screens.map((screen) => (
             <PhoneFrame key={screen.title} title={screen.title} detail={screen.detail} />
           ))}
@@ -105,9 +98,9 @@ function TeleporteurPage() {
 
       <Section label="Technologies">
         <SectionHeading eyebrow="Technologies" title="Skills applied" />
-        <ul className="mt-8 flex flex-wrap gap-3">
+        <ul className="mt-10 grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
           {TELEPORTEUR.technologies.map((tech) => (
-            <li key={tech} className="rounded-full border border-hairline px-4 py-2 text-sm">
+            <li key={tech} className="border-t border-hairline py-4 text-base">
               {tech}
             </li>
           ))}
