@@ -72,8 +72,6 @@ export type Project = {
   year?: string;
 };
 
-const PLACEHOLDER_TEXT = "TODO: add this detail — placeholder, not a real claim.";
-
 export const projects: Project[] = [
   {
     title: "Chandeluxe",
@@ -186,11 +184,11 @@ export const projects: Project[] = [
     domain: "GlobalPortfolioManagement.com",
     slug: "globalportfoliomanagement",
     kind: "web",
-    category: "Website Concept / Professional Services",
+    category: "Website Design & Development — Professional Services",
     summary:
       "A domain-based website concept for a professional financial services presence, built for clarity and credibility.",
     overview:
-      "GlobalPortfolioManagement.com is a website concept developed on my own domain for a professional, finance-oriented services presence. The design brief was restraint: a serious, quiet interface where structure and readability carry the credibility.",
+      "GlobalPortfolioManagement.com is a live website developed on my own domain for a professional, finance-oriented services presence. The design brief was restraint: a serious, quiet interface where structure and readability carry the credibility.",
     role: "Concept, information architecture, UI/UX design, front-end development.",
     objective:
       "Show how a professional services website can feel trustworthy through hierarchy, spacing and plain language rather than decoration or unverifiable claims.",
