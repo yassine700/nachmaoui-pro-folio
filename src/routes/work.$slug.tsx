@@ -1,7 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 
 import { CaseStudy } from "@/components/work/CaseStudy";
-import { getAdjacentWebProjects, getWebProject } from "@/data/projects";
+import { getAdjacentWebProjects, getWebProject, webProjects } from "@/data/projects";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -47,5 +47,13 @@ export const Route = createFileRoute("/work/$slug")({
 
 function ProjectCaseStudy() {
   const { project, previous, next } = Route.useLoaderData();
-  return <CaseStudy project={project} previous={previous} next={next} />;
+  const index = webProjects.findIndex((p) => p.slug === project.slug);
+  return (
+    <CaseStudy
+      project={project}
+      previous={previous}
+      next={next}
+      index={index >= 0 ? index : undefined}
+    />
+  );
 }
