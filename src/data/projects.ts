@@ -1,3 +1,16 @@
+import chandeluxe1 from "@/assets/shots/chandeluxe-1.jpg.asset.json";
+import chandeluxe2 from "@/assets/shots/chandeluxe-2.jpg.asset.json";
+import goutdeparfum1 from "@/assets/shots/goutdeparfum-1.jpg.asset.json";
+import goutdeparfum2 from "@/assets/shots/goutdeparfum-2.jpg.asset.json";
+import gpm1 from "@/assets/shots/globalportfoliomanagement-1.jpg.asset.json";
+import gpm2 from "@/assets/shots/globalportfoliomanagement-2.jpg.asset.json";
+import atr1 from "@/assets/shots/affordabletransmissionrepair-1.jpg.asset.json";
+import atr2 from "@/assets/shots/affordabletransmissionrepair-2.jpg.asset.json";
+import fcc1 from "@/assets/shots/floorcoatingcontractors-1.jpg.asset.json";
+import fcc2 from "@/assets/shots/floorcoatingcontractors-2.jpg.asset.json";
+import hfr1 from "@/assets/shots/homefurnacereplacement-1.jpg.asset.json";
+import hfr2 from "@/assets/shots/homefurnacereplacement-2.jpg.asset.json";
+
 export type ProjectCategory =
   | "Website"
   | "Landing Page"
@@ -99,10 +112,21 @@ export const projects: Project[] = [
       blocks: ["Chandeliers", "Pendants", "Wall lights"],
       tone: "warm",
     },
-    gallery: [],
-    // TODO: add liveUrl once the site is published — the live button only renders when it exists.
+    gallery: [
+      {
+        src: chandeluxe1.url,
+        alt: "Chandeluxe.ma homepage with the chandelier collection hero",
+        caption: "Homepage — collection hero and introduction.",
+      },
+      {
+        src: chandeluxe2.url,
+        alt: "Chandeluxe.ma sales and rental offer sections with a quote call to action",
+        caption: "Sales and rental offers, ending in a quote request.",
+      },
+    ],
+    liveUrl: "https://chandeluxe.ma",
     featured: true,
-    status: "in-progress",
+    status: "live",
   },
   {
     title: "Goût de Parfum",
@@ -141,10 +165,21 @@ export const projects: Project[] = [
       blocks: ["Floral", "Woody", "Oriental"],
       tone: "editorial",
     },
-    gallery: [],
-    // TODO: add liveUrl once the site is published.
+    gallery: [
+      {
+        src: goutdeparfum1.url,
+        alt: "GoutDeParfum.com homepage with fragrance imagery and collections",
+        caption: "Homepage — fragrance imagery and collections.",
+      },
+      {
+        src: goutdeparfum2.url,
+        alt: "GoutDeParfum.com product grid and brand story section",
+        caption: "Product grid and brand story.",
+      },
+    ],
+    liveUrl: "https://goutdeparfum.com",
     featured: true,
-    status: "in-progress",
+    status: "live",
   },
   {
     title: "Global Portfolio Management",
@@ -183,8 +218,20 @@ export const projects: Project[] = [
       blocks: ["Approach", "Services", "Insights"],
       tone: "navy",
     },
-    gallery: [],
-    status: "concept",
+    gallery: [
+      {
+        src: gpm1.url,
+        alt: "GlobalPortfolioManagement.com homepage with editorial serif hero",
+        caption: "Homepage — positioning and headline metrics.",
+      },
+      {
+        src: gpm2.url,
+        alt: "GlobalPortfolioManagement.com strategy cards and allocation explorer",
+        caption: "Strategy cards and the allocation explorer.",
+      },
+    ],
+    liveUrl: "https://globalportfoliomanagement.com",
+    status: "live",
   },
   {
     title: "Outdour Staging Company",
@@ -257,8 +304,20 @@ export const projects: Project[] = [
       blocks: ["Diagnostics", "Rebuilds", "Fluid service"],
       tone: "automotive",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: atr1.url,
+        alt: "affordabletransmissionrepair.com homepage hero with workshop photography",
+        caption: "Homepage — hero, trust details and estimate call to action.",
+      },
+      {
+        src: atr2.url,
+        alt: "affordabletransmissionrepair.com transmission service cards",
+        caption: "Service breakdown by repair type.",
+      },
+    ],
+    liveUrl: "https://affordabletransmissionrepair.com",
+    status: "live",
   },
   {
     title: "Floor Coating Contractors",
@@ -292,8 +351,20 @@ export const projects: Project[] = [
       blocks: ["Epoxy", "Polyaspartic", "Sealing"],
       tone: "industrial",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: fcc1.url,
+        alt: "floorcoatingcontractors.com project gallery of finished coated floors",
+        caption: "Project gallery of finished floors.",
+      },
+      {
+        src: fcc2.url,
+        alt: "floorcoatingcontractors.com coating service cards with pricing and timelines",
+        caption: "Coating systems with pricing and timelines.",
+      },
+    ],
+    liveUrl: "https://floorcoatingcontractors.com",
+    status: "live",
   },
   {
     title: "Home Furnace Replacement",
@@ -327,8 +398,20 @@ export const projects: Project[] = [
       blocks: ["Replacement", "Repair or replace", "Maintenance"],
       tone: "heat",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: hfr1.url,
+        alt: "homefurnacereplacement.com homepage hero with furnace installation photography",
+        caption: "Homepage — hero and free-estimate call to action.",
+      },
+      {
+        src: hfr2.url,
+        alt: "homefurnacereplacement.com benefits and furnace service sections",
+        caption: "Replacement benefits and service breakdown.",
+      },
+    ],
+    liveUrl: "https://homefurnacereplacement.com",
+    status: "live",
   },
 ];
 
