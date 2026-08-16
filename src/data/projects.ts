@@ -8,6 +8,23 @@ export type ProjectKind = "web" | "app";
 
 export type ProjectSection = { title: string; body: string };
 
+/**
+ * Data for a CSS-drawn website preview mockup. Purely a portfolio
+ * presentation device — never a claim that the site is live.
+ */
+export type ProjectPreview = {
+  /** Short headline shown inside the mockup hero. */
+  headline: string;
+  /** One-line supporting copy inside the mockup. */
+  tagline: string;
+  nav: string[];
+  cta: string;
+  /** Three short blocks shown under the mockup hero. */
+  blocks: string[];
+  /** Visual tone token set used by the mockup. */
+  tone: "warm" | "editorial" | "navy" | "outdoor" | "automotive" | "industrial" | "heat";
+};
+
 export type Project = {
   title: string;
   /** Real domain, shown prominently when it is a domain-based project. */
@@ -30,6 +47,8 @@ export type Project = {
   technologies: string[];
   /** Additional narrative blocks (used heavily by the Téléporteur MVP page). */
   sections?: ProjectSection[];
+  /** Industry-specific preview mockup shown when no screenshot exists yet. */
+  preview?: ProjectPreview;
   /** TODO: replace with real screenshots. Empty array renders labelled placeholders. */
   gallery: { src: string; alt: string; caption?: string }[];
   /** Only set when the real URL is confirmed — the live CTA depends on it. */
