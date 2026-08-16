@@ -26,15 +26,15 @@ export function SitePreview({
       )}
     >
       <div className="flex items-center justify-between gap-4 border-b border-[color-mix(in_oklab,var(--preview-ink)_12%,transparent)] px-4 py-2.5 md:px-6">
-        <span className="font-display text-[0.8rem] tracking-tight md:text-base">
+        <span className="shrink-0 font-display text-[0.8rem] tracking-tight md:text-base">
           {domain ?? "Website"}
         </span>
-        <span className="hidden items-center gap-4 text-[0.6rem] uppercase tracking-[0.14em] opacity-70 sm:flex md:text-[0.65rem]">
+        <span className="hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-hidden whitespace-nowrap text-[0.6rem] uppercase tracking-[0.14em] opacity-70 sm:flex md:text-[0.65rem]">
           {preview.nav.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </span>
-        <span className="rounded-full bg-[var(--preview-brand)] px-2.5 py-1 text-[0.55rem] uppercase tracking-[0.12em] text-[var(--preview-tint)] md:text-[0.6rem]">
+        <span className="shrink-0 whitespace-nowrap rounded-full bg-[var(--preview-brand)] px-2.5 py-1 text-[0.55rem] uppercase tracking-[0.12em] text-[var(--preview-tint)] md:text-[0.6rem]">
           {preview.cta}
         </span>
       </div>
