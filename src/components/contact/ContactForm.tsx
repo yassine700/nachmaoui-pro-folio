@@ -139,7 +139,7 @@ export function ContactForm() {
         type="submit"
         className="editorial-link justify-self-start text-base"
       >
-        Send message
+        Send message <span aria-hidden="true">&rarr;</span>
       </button>
     </form>
   );
