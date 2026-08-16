@@ -39,8 +39,8 @@ export function SectionHeading({
 }: {
   eyebrow: string;
   title: string;
-  description?: string;
-  className?: string;
+  description?: string | undefined;
+  className?: string | undefined;
 }) {
   return (
     <div className={cn("max-w-2xl", className)}>

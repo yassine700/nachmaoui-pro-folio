@@ -21,8 +21,8 @@ export function CaseStudy({
   next,
 }: {
   project: Project;
-  previous?: Project;
-  next?: Project;
+  previous?: Project | undefined;
+  next?: Project | undefined;
 }) {
   return (
     <>

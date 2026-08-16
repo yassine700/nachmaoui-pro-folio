@@ -14,10 +14,10 @@ export function BrowserFrame({
   aspect = "aspect-16/10",
 }: {
   label: string;
-  image?: { src: string; alt: string };
-  className?: string;
+  image?: { src: string; alt: string } | undefined;
+  className?: string | undefined;
   children?: ReactNode;
-  aspect?: string;
+  aspect?: string | undefined;
 }) {
   return (
     <div
@@ -62,9 +62,9 @@ export function PhoneFrame({
   image,
 }: {
   title: string;
-  detail?: string;
-  className?: string;
-  image?: { src: string; alt: string };
+  detail?: string | undefined;
+  className?: string | undefined;
+  image?: { src: string; alt: string } | undefined;
 }) {
   return (
     <figure className={cn("w-full", className)}>
