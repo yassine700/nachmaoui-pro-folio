@@ -1,17 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Hero } from "@/components/home/Hero";
-import { FeaturedWork } from "@/components/home/FeaturedWork";
-import { MobileMvp } from "@/components/home/MobileMvp";
-import { SeoFundamentals } from "@/components/home/SeoFundamentals";
-import { Services } from "@/components/home/Services";
-import { About } from "@/components/home/About";
-import { Process } from "@/components/home/Process";
-import { Contact } from "@/components/home/Contact";
+import { WorkPreview } from "@/components/home/WorkPreview";
+import { AppsPreview } from "@/components/home/AppsPreview";
+import { SeoPreview } from "@/components/home/SeoPreview";
+import { ServicesPreview } from "@/components/home/ServicesPreview";
+import { AboutPreview } from "@/components/home/AboutPreview";
+import { ContactCta } from "@/components/shared/ContactCta";
 
-const TITLE = "Yassine Nachmaoui — Freelance Web Designer & Developer";
+const TITLE = "Yassine Nachmaoui — Web Designer & Developer | Nachmaoui.com";
 const DESCRIPTION =
-  "Freelance web designer and developer based in Morocco. Website design, responsive development, mobile app MVPs and SEO fundamentals for businesses.";
+  "Yassine Nachmaoui designs and builds modern websites, web applications and SEO-ready digital experiences for businesses.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,13 +30,12 @@ function Index() {
   return (
     <>
       <Hero />
-      <FeaturedWork />
-      <MobileMvp />
-      <SeoFundamentals />
-      <Services />
-      <About />
-      <Process />
-      <Contact />
+      <WorkPreview />
+      <AppsPreview />
+      <SeoPreview />
+      <ServicesPreview />
+      <AboutPreview />
+      <ContactCta />
     </>
   );
 }
