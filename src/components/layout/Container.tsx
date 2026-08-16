@@ -9,6 +9,8 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-6xl px-6 md:px-10", className)}>{children}</div>
+    <div className={cn("mx-auto w-full max-w-[84rem] px-6 md:px-10 lg:px-16", className)}>
+      {children}
+    </div>
   );
 }

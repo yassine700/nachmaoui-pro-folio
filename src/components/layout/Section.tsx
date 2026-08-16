@@ -8,21 +8,24 @@ export function Section({
   className,
   tone = "default",
   label,
+  divider = true,
 }: {
   id?: string;
   children: ReactNode;
   className?: string;
   tone?: "default" | "surface" | "ink";
   label?: string;
+  divider?: boolean;
 }) {
   return (
     <section
       id={id}
       aria-label={label}
       className={cn(
-        "scroll-mt-24 border-t border-hairline py-20 md:py-28",
+        "scroll-mt-24 py-20 md:py-32",
+        divider && tone === "default" && "border-t border-hairline",
         tone === "surface" && "bg-surface text-surface-foreground",
-        tone === "ink" && "border-transparent bg-ink text-ink-foreground",
+        tone === "ink" && "bg-ink text-ink-foreground",
         className,
       )}
     >
@@ -43,11 +46,13 @@ export function SectionHeading({
   className?: string | undefined;
 }) {
   return (
-    <div className={cn("max-w-2xl", className)}>
-      <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl leading-[1.1] md:text-[2.75rem]">{title}</h2>
+    <div className={cn("max-w-3xl", className)}>
+      <p className="eyebrow">{eyebrow}</p>
+      <h2 className="mt-6 text-[2rem] leading-[1.06] md:text-5xl">{title}</h2>
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{description}</p>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          {description}
+        </p>
       ) : null}
     </div>
   );
