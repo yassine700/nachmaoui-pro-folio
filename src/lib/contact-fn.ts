@@ -77,7 +77,8 @@ export const submitContactForm = createServerFn({ method: "POST" })
     }
 
     const apiKey = getSecret("RESEND_API_KEY");
-    const recipientEmail = "yassine@nachmaoui.com";
+    const recipientEmail =
+      getSecret("RESEND_TO_EMAIL") || "yassinenachmaoui@gmail.com";
 
     // If no email service is configured, inform the user clearly
     if (!apiKey) {
