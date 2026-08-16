@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { Container } from "@/components/layout/Container";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { ContactCta } from "@/components/shared/ContactCta";
 import { PROCESS, SERVICES } from "@/data/site";
@@ -26,52 +26,52 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <>
-      <section className="bg-ink py-20 text-ink-foreground md:py-28">
-        <Container>
-          <div className="reveal max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.22em] text-ink-foreground/60">Services</p>
-            <h1 className="mt-6 text-[2.4rem] leading-[1.05] md:text-6xl">
-              What I can help you with
-            </h1>
-            <p className="mt-8 text-lg leading-relaxed text-ink-foreground/75">
-              Websites that look good, work well, and get found. I design and build modern websites
-              and digital experiences for businesses that want a stronger online presence.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHeader
+        eyebrow="Services"
+        title={<>What I can help you with</>}
+        lead="Websites that look good, work well, and get found. I design and build modern websites and digital experiences for businesses that want a stronger online presence."
+      />
 
-      <Section label="Service detail">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {SERVICES.map((service) => (
-            <article
+      <Section label="Service detail" divider={false}>
+        <ol>
+          {SERVICES.map((service, i) => (
+            <li
               key={service.title}
-              className="rounded-xl border border-hairline bg-card p-8 transition-colors hover:border-primary/40"
+              className="group grid gap-4 border-t border-hairline py-10 md:grid-cols-[5rem_1fr_1.2fr_auto] md:items-baseline md:gap-10 md:py-14"
             >
-              <h2 className="text-2xl">{service.title}</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              <span className="font-display text-lg text-muted-foreground">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h2 className="text-2xl md:text-4xl">{service.title}</h2>
+              <p className="max-w-prose text-base leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
-            </article>
+              <Link to="/contact" className="editorial-link text-sm whitespace-nowrap">
+                Discuss it{" "}
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
-      <Section tone="surface" label="Process">
+      <Section label="Process">
         <SectionHeading
-          eyebrow="My Process"
+          eyebrow="My process"
           title="Four steps, from first conversation to launch"
         />
-        <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {PROCESS.map((item, i) => (
             <li
               key={item.step}
-              className="reveal rounded-xl border border-hairline bg-background p-7"
+              className="reveal border-t border-hairline pt-6"
               style={{ animationDelay: `${i * 90}ms` }}
             >
-              <p className="font-display text-3xl text-primary">{item.step}</p>
-              <h3 className="mt-3 text-xl">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="font-display text-base text-muted-foreground">{item.step}</p>
+              <h3 className="mt-4 text-2xl">{item.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
             </li>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Container } from "@/components/layout/Container";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { ContactCta } from "@/components/shared/ContactCta";
 import { SKILLS } from "@/data/site";
@@ -26,26 +26,20 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
-      <section className="bg-ink py-20 text-ink-foreground md:py-28">
-        <Container>
-          <div className="reveal max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.22em] text-ink-foreground/60">About</p>
-            <h1 className="mt-6 text-[2.4rem] leading-[1.05] md:text-6xl">
-              I'm Yassine. I build things for the web.
-            </h1>
-          </div>
-        </Container>
-      </section>
+      <PageHeader
+        eyebrow="About"
+        title={<>I&apos;m Yassine. I build things for the web.</>}
+        meta={[
+          { term: "Focus", value: "Web design, development, SEO fundamentals" },
+          { term: "Currently", value: "Mobile MVP concepts and React apps" },
+          { term: "Based in", value: "Morocco, working remotely" },
+        ]}
+      />
 
       <Section label="Introduction">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-          <div className="flex aspect-4/5 items-center justify-center rounded-xl border border-hairline bg-surface">
-            {/* TODO: replace with your professional portrait. */}
-            <p className="px-6 text-center text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Portrait placeholder
-            </p>
-          </div>
-          <div className="max-w-prose space-y-5 text-base leading-relaxed text-muted-foreground">
+        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+          <p className="eyebrow lg:pt-3">Introduction</p>
+          <div className="max-w-prose space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
               I'm a Morocco-based freelance web designer and developer interested in creating useful,
               modern and practical digital experiences.
@@ -65,17 +59,15 @@ function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="surface" label="Skills">
+      <Section label="Skills">
         <SectionHeading eyebrow="Skills" title="What I work with" />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-12 md:grid-cols-3">
           {SKILLS.map((group) => (
-            <article key={group.group} className="rounded-xl border border-hairline bg-background p-7">
-              <h3 className="text-xl">{group.group}</h3>
-              <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground">
+            <article key={group.group} className="border-t border-hairline pt-6">
+              <h3 className="text-2xl">{group.group}</h3>
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
                 {group.items.map((item) => (
-                  <li key={item} className="border-b border-hairline pb-2.5 last:border-b-0">
-                    {item}
-                  </li>
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </article>
