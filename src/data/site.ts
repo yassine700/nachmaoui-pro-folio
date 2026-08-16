@@ -66,3 +66,42 @@ export const PROCESS = [
       "Deployment, final checks across devices, and then iteration — content updates, new pages and refinements as your business changes.",
   },
 ] as const;
+export const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/work", label: "Work" },
+  { to: "/apps", label: "Apps" },
+  { to: "/seo", label: "SEO" },
+  { to: "/services", label: "Services" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+] as const;
+
+// TODO: replace each placeholder with your real profile URL.
+export const SOCIAL_LINKS = [
+  { label: "LinkedIn" },
+  { label: "GitHub" },
+  { label: "Dribbble" },
+] as const;
+
+export const SKILLS = [
+  {
+    group: "Web",
+    items: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
+  },
+  {
+    group: "Tools",
+    items: ["Git", "GitHub", "VS Code", "Lovable", "Modern web tooling"],
+  },
+  {
+    group: "SEO",
+    items: ["On-page SEO", "Technical SEO basics", "Local SEO fundamentals", "Content structure"],
+  },
+] as const;
+
+export const PROJECT_TYPES = [
+  "Website design & development",
+  "Landing page",
+  "Web app / MVP concept",
+  "SEO foundations",
+  "Something else",
+] as const;
