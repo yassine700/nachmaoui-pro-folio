@@ -69,14 +69,14 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.986 0.004 90);
-  --foreground: oklch(0.19 0.02 264);
-  --surface: oklch(0.964 0.006 90);
-  --surface-foreground: oklch(0.19 0.02 264);
-  --ink: oklch(0.185 0.024 264);
-  --ink-foreground: oklch(0.97 0.005 90);
-  --hairline: oklch(0.885 0.008 264);
+  --radius: 0.25rem;
+  --background: oklch(0.985 0.006 86);
+  --foreground: oklch(0.16 0.008 70);
+  --surface: oklch(0.968 0.007 86);
+  --surface-foreground: oklch(0.16 0.008 70);
+  --ink: oklch(0.155 0.008 70);
+  --ink-foreground: oklch(0.975 0.006 86);
+  --hairline: oklch(0.895 0.006 84);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.19 0.02 264);
   --popover: oklch(1 0 0);
@@ -86,13 +86,13 @@
   --secondary: oklch(0.955 0.008 260);
   --secondary-foreground: oklch(0.26 0.03 264);
   --muted: oklch(0.955 0.008 260);
-  --muted-foreground: oklch(0.5 0.02 260);
+  --muted-foreground: oklch(0.51 0.012 80);
   --accent: oklch(0.94 0.03 262);
   --accent-foreground: oklch(0.36 0.15 262);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.008 264);
-  --input: oklch(0.9 0.008 264);
+  --border: oklch(0.895 0.006 84);
+  --input: oklch(0.885 0.006 84);
   --ring: oklch(0.45 0.19 262);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -213,7 +213,60 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+/* Editorial link: hairline underline that draws in on hover. */
+@utility editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.2em;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Eyebrow label used above editorial headings. */
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility media-zoom {
+  overflow: hidden;
+
+  & img,
+  & [data-zoom] {
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover img,
+  &:hover [data-zoom] {
+    transform: scale(1.03);
   }
 }
 
