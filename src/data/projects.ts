@@ -354,5 +354,5 @@ export const STATUS_LABEL: Record<Project["status"], string> = {
   live: "Live",
   "in-progress": "In progress",
   concept: "Concept",
-  placeholder: "Coming soon",
+  placeholder: "Details to be added",
 };
