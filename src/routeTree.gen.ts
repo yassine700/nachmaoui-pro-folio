@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppsIndexRouteImport } from './routes/apps.index'
+import { Route as AppsTeleporteurRouteImport } from './routes/apps.teleporteur'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppsIndexRoute = AppsIndexRouteImport.update({
+  id: '/apps/',
+  path: '/apps/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppsTeleporteurRoute = AppsTeleporteurRouteImport.update({
+  id: '/apps/teleporteur',
+  path: '/apps/teleporteur',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkIndexRoute = WorkIndexRouteImport.update({
@@ -31,31 +43,40 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/apps/': typeof AppsIndexRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/apps': typeof AppsIndexRoute
   '/work': typeof WorkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/apps/': typeof AppsIndexRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/work/$slug' | '/work/'
+  fullPaths: '/' | '/apps/teleporteur' | '/work/$slug' | '/apps/' | '/work/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/work/$slug' | '/work'
-  id: '__root__' | '/' | '/work/$slug' | '/work/'
+  to: '/' | '/apps/teleporteur' | '/work/$slug' | '/apps' | '/work'
+  id:
+    '__root__' | '/' | '/apps/teleporteur' | '/work/$slug' | '/apps/' | '/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppsTeleporteurRoute: typeof AppsTeleporteurRoute
   WorkSlugRoute: typeof WorkSlugRoute
+  AppsIndexRoute: typeof AppsIndexRoute
   WorkIndexRoute: typeof WorkIndexRoute
 }
 
@@ -66,6 +87,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/': {
+      id: '/apps/'
+      path: '/apps'
+      fullPath: '/apps/'
+      preLoaderRoute: typeof AppsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/teleporteur': {
+      id: '/apps/teleporteur'
+      path: '/apps/teleporteur'
+      fullPath: '/apps/teleporteur'
+      preLoaderRoute: typeof AppsTeleporteurRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work/': {
@@ -87,7 +122,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppsTeleporteurRoute: AppsTeleporteurRoute,
   WorkSlugRoute: WorkSlugRoute,
+  AppsIndexRoute: AppsIndexRoute,
   WorkIndexRoute: WorkIndexRoute,
 }
 export const routeTree = rootRouteImport
