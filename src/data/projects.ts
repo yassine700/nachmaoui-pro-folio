@@ -282,20 +282,23 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for a transmission repair shop, structured around services, service area and getting a quote quickly.",
     overview:
-      "affordabletransmissionrepair.com is a domain website project for an automotive transmission repair business. Detailed project documentation and screenshots are still to be added — what is shown here is the intended structure for a local automotive service site, not a claim about a live client website.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "affordabletransmissionrepair.com is a live website I designed and built on my own domain for an automotive transmission repair business. It is structured the way a local service site should be: what gets repaired, proof of process, and a free-estimate request that is never more than one tap away.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Make a transmission repair service easy to understand and easy to contact: what is repaired, where, and how to ask for a price.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "High-contrast automotive direction: condensed display headings, a red accent used only for actions, workshop photography behind the hero, and service cards that stay readable in a garage on a phone.",
+    developmentApproach:
+      "Component-driven front-end with reusable service and FAQ blocks, semantic markup, sticky call and estimate actions, and image handling tuned for a fast first render.",
     keySections: [
       "Home with service summary",
       "Transmission services",
       "Service area",
       "Request a quote / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first: stacked service cards, tap-to-call in the header, and a four-column service grid from large screens upward.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Transmission repair, diagnosed properly",
       tagline: "Rebuilds, diagnostics and fluid service",
@@ -328,12 +331,14 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for floor coating contractors, built around coating types, project photography space and quote requests.",
     overview:
-      "floorcoatingcontractors.com is a domain website project for a floor coating and resin flooring contractor. Full project details and screenshots are still to be added; the presentation here shows the intended structure of the site rather than a live client engagement.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "floorcoatingcontractors.com is a live website I designed and built on my own domain for a floor coating and resin flooring contractor. Coating systems are explained plainly with pricing and timelines, and finished-floor photography carries the credibility.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Explain coating options plainly, leave room for real finished-floor photography, and keep a quote request one tap away.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "Dark, industrial direction with a single orange action colour, heavy sans headings, and coating cards that pair each system with its price per square foot and install time.",
+    developmentApproach:
+      "Front-end build with reusable coating, gallery and service-area blocks, semantic markup, and a persistent free-estimate call to action.",
     keySections: [
       "Home with coating overview",
       "Coating types (epoxy, polyaspartic, sealing)",
@@ -341,8 +346,9 @@ export const projects: Project[] = [
       "Project gallery",
       "Quote request / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first single-column reading with stacked coating cards, expanding to a four-column system grid and a mosaic project gallery on desktop.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Durable floor coatings for home and shop",
       tagline: "Epoxy, polyaspartic and concrete sealing",
@@ -375,12 +381,14 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for furnace replacement and heating services, organised around system options and booking an estimate.",
     overview:
-      "homefurnacereplacement.com is a domain website project for a residential heating and furnace replacement business. Detailed documentation, technologies and screenshots are still to be added — this page presents the intended structure, not a live client website.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "homefurnacereplacement.com is a live website I designed and built on my own domain for residential furnace replacement and heating services. It walks a homeowner from the repair-or-replace question to booking an in-home estimate.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Help a homeowner decide whether to repair or replace, then make booking an in-home estimate the obvious next step.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "Clean, trust-led HVAC direction: navy and red on white, benefit cards with plain-language copy, licensing details near the headline, and installation photography beside the hero.",
+    developmentApproach:
+      "Front-end build with reusable benefit, service and FAQ blocks, an emergency notice bar, semantic markup, and quote actions repeated at every scroll depth.",
     keySections: [
       "Home with heating service summary",
       "Furnace replacement",
@@ -388,8 +396,9 @@ export const projects: Project[] = [
       "Service area",
       "Book an estimate / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first stacked layout with tap-to-call, moving to a split hero and four-column benefit grid on desktop.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Furnace replacement without the guesswork",
       tagline: "Heating systems, installed and serviced",
