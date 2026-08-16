@@ -68,7 +68,7 @@ Seeded with Home Furnace Replacement and Moroccan Community/News. Any fact I don
 
 Tokens in `src/styles.css` (oklch), no hardcoded colors in components.
 
-- Palette: near-black ink background option for hero/footer, warm off-white page surface, one restrained accent (deep amber or electric cobalt — I'll pick during build unless you prefer one), grays for structure.
+- Palette: light default theme — warm off-white page surface, near-black ink blocks for hero/footer accents, and a deep cobalt accent (`oklch(0.45 0.19 262)`) for links, CTAs and focus rings.
 - Typography: an editorial display face for headings + clean geometric sans for body (loaded via `<link>` in `__root.tsx`). Large type scale, tight headline tracking, generous line-height on body.
 - Layout: 12-col container, wide gutters, big vertical rhythm, hairline borders instead of heavy shadows, asymmetric project rows.
 - Motion: subtle only — fade/slide-up on scroll reveal, image hover scale, link underline transitions. Respect `prefers-reduced-motion`.
@@ -97,7 +97,7 @@ SSR by default, minimal client JS, no chart/carousel libs on marketing pages, im
 
 ## 10. Contact form
 
-Phase 1: react-hook-form + zod (name, email, company, project type, message) with a `mailto:`-free UX — submit posts to a TanStack server function that currently validates and logs, plus a visible email address as guaranteed fallback. Phase 2 (your call): enable Lovable Cloud to store submissions in a database and send an email notification, with honeypot/rate-limit protection. I'd recommend Cloud so leads are never lost — needs your decision.
+Email-only fallback for now: a prominent email address (plus future profile links) as the contact path. The full validated form (name, email, company, project type, message) and stored submissions via Lovable Cloud are deferred to a later phase.
 
 ## 11. Development phases
 
@@ -108,11 +108,15 @@ Phase 1: react-hook-form + zod (name, email, company, project type, message) wit
 - Phase 5 — SEO & polish: sitemap route, JSON-LD, alt-text pass, a11y and mobile QA, scroll animations.
 - Later: blog/notes, case-study PDFs, multilingual (FR/AR), CMS-backed projects, analytics.
 
-## 12. Decisions I need from you
+## 12. Confirmed decisions
 
-1. Accent color direction (amber-on-ink vs cobalt-on-off-white) and light/dark default.
-2. Contact form: email-only fallback now, or enable Lovable Cloud for stored submissions + email notifications?
-3. Real content: live URLs, screenshots, and your email/profile links for the seeded projects — otherwise I ship clearly marked placeholders and generated mockups.
-4. Language: English only for launch, or plan FR later?
+1. Accent: deep cobalt. Default theme: light.
+2. Contact: email-only fallback in Phase 1.
+3. Language: English only at launch.
+4. Téléporteur stays explicitly categorized as a Mobile MVP concept everywhere it appears.
+5. Scope now: **Phase 1 only** — design system + homepage. Stop for your review before Phase 2.
+6. Still needed from you: live URLs, screenshots, your email and profile links. Until provided they ship as clearly marked placeholders.
+
+Phase 1 note: because /work, /services, /contact etc. don't exist yet, the homepage CTAs and section links use in-page anchors in this phase and get repointed to real routes in Phase 2+.
 
 Risks: no real screenshots yet means generated mockups that must be swapped before sending to clients; the domain isn't attached, so canonical/sitemap URLs stay relative until it is.
