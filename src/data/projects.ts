@@ -1,3 +1,22 @@
+import chandeluxe1 from "@/assets/shots/chandeluxe-1.jpg.asset.json";
+import chandeluxe2 from "@/assets/shots/chandeluxe-2.jpg.asset.json";
+import goutdeparfum1 from "@/assets/shots/goutdeparfum-1.jpg.asset.json";
+import goutdeparfum2 from "@/assets/shots/goutdeparfum-2.jpg.asset.json";
+import gpm1 from "@/assets/shots/globalportfoliomanagement-1.jpg.asset.json";
+import gpm2 from "@/assets/shots/globalportfoliomanagement-2.jpg.asset.json";
+import atr1 from "@/assets/shots/affordabletransmissionrepair-1.jpg.asset.json";
+import atr2 from "@/assets/shots/affordabletransmissionrepair-2.jpg.asset.json";
+import fcc1 from "@/assets/shots/floorcoatingcontractors-1.jpg.asset.json";
+import fcc2 from "@/assets/shots/floorcoatingcontractors-2.jpg.asset.json";
+import hfr1 from "@/assets/shots/homefurnacereplacement-1.jpg.asset.json";
+import hfr2 from "@/assets/shots/homefurnacereplacement-2.jpg.asset.json";
+import chandeluxeM from "@/assets/shots/chandeluxe-m.jpg.asset.json";
+import goutdeparfumM from "@/assets/shots/goutdeparfum-m.jpg.asset.json";
+import gpmM from "@/assets/shots/globalportfoliomanagement-m.jpg.asset.json";
+import atrM from "@/assets/shots/affordabletransmissionrepair-m.jpg.asset.json";
+import fccM from "@/assets/shots/floorcoatingcontractors-m.jpg.asset.json";
+import hfrM from "@/assets/shots/homefurnacereplacement-m.jpg.asset.json";
+
 export type ProjectCategory =
   | "Website"
   | "Landing Page"
@@ -51,6 +70,8 @@ export type Project = {
   preview?: ProjectPreview;
   /** TODO: replace with real screenshots. Empty array renders labelled placeholders. */
   gallery: { src: string; alt: string; caption?: string }[];
+  /** Real mobile screenshot shown inside the phone frame, when available. */
+  mobileShot?: { src: string; alt: string };
   /** Only set when the real URL is confirmed — the live CTA depends on it. */
   liveUrl?: string;
   githubUrl?: string;
@@ -58,8 +79,6 @@ export type Project = {
   status: "live" | "in-progress" | "concept" | "placeholder";
   year?: string;
 };
-
-const PLACEHOLDER_TEXT = "TODO: add this detail — placeholder, not a real claim.";
 
 export const projects: Project[] = [
   {
@@ -99,10 +118,25 @@ export const projects: Project[] = [
       blocks: ["Chandeliers", "Pendants", "Wall lights"],
       tone: "warm",
     },
-    gallery: [],
-    // TODO: add liveUrl once the site is published — the live button only renders when it exists.
+    gallery: [
+      {
+        src: chandeluxe1.url,
+        alt: "Chandeluxe.ma homepage with the chandelier collection hero",
+        caption: "Homepage — collection hero and introduction.",
+      },
+      {
+        src: chandeluxe2.url,
+        alt: "Chandeluxe.ma sales and rental offer sections with a quote call to action",
+        caption: "Sales and rental offers, ending in a quote request.",
+      },
+    ],
+    liveUrl: "https://chandeluxe.ma",
+    mobileShot: {
+      src: chandeluxeM.url,
+      alt: "Chandeluxe.ma homepage on a phone",
+    },
     featured: true,
-    status: "in-progress",
+    status: "live",
   },
   {
     title: "Goût de Parfum",
@@ -141,21 +175,36 @@ export const projects: Project[] = [
       blocks: ["Floral", "Woody", "Oriental"],
       tone: "editorial",
     },
-    gallery: [],
-    // TODO: add liveUrl once the site is published.
+    gallery: [
+      {
+        src: goutdeparfum1.url,
+        alt: "GoutDeParfum.com homepage with fragrance imagery and collections",
+        caption: "Homepage — fragrance imagery and collections.",
+      },
+      {
+        src: goutdeparfum2.url,
+        alt: "GoutDeParfum.com product grid and brand story section",
+        caption: "Product grid and brand story.",
+      },
+    ],
+    liveUrl: "https://goutdeparfum.com",
+    mobileShot: {
+      src: goutdeparfumM.url,
+      alt: "GoutDeParfum.com homepage on a phone",
+    },
     featured: true,
-    status: "in-progress",
+    status: "live",
   },
   {
     title: "Global Portfolio Management",
     domain: "GlobalPortfolioManagement.com",
     slug: "globalportfoliomanagement",
     kind: "web",
-    category: "Website Concept / Professional Services",
+    category: "Website Design & Development — Professional Services",
     summary:
       "A domain-based website concept for a professional financial services presence, built for clarity and credibility.",
     overview:
-      "GlobalPortfolioManagement.com is a website concept developed on my own domain for a professional, finance-oriented services presence. The design brief was restraint: a serious, quiet interface where structure and readability carry the credibility.",
+      "GlobalPortfolioManagement.com is a live website developed on my own domain for a professional, finance-oriented services presence. The design brief was restraint: a serious, quiet interface where structure and readability carry the credibility.",
     role: "Concept, information architecture, UI/UX design, front-end development.",
     objective:
       "Show how a professional services website can feel trustworthy through hierarchy, spacing and plain language rather than decoration or unverifiable claims.",
@@ -183,8 +232,24 @@ export const projects: Project[] = [
       blocks: ["Approach", "Services", "Insights"],
       tone: "navy",
     },
-    gallery: [],
-    status: "concept",
+    gallery: [
+      {
+        src: gpm1.url,
+        alt: "GlobalPortfolioManagement.com homepage with editorial serif hero",
+        caption: "Homepage — positioning and headline metrics.",
+      },
+      {
+        src: gpm2.url,
+        alt: "GlobalPortfolioManagement.com strategy cards and allocation explorer",
+        caption: "Strategy cards and the allocation explorer.",
+      },
+    ],
+    liveUrl: "https://globalportfoliomanagement.com",
+    mobileShot: {
+      src: gpmM.url,
+      alt: "GlobalPortfolioManagement.com homepage on a phone",
+    },
+    status: "live",
   },
   {
     title: "Outdour Staging Company",
@@ -235,20 +300,23 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for a transmission repair shop, structured around services, service area and getting a quote quickly.",
     overview:
-      "affordabletransmissionrepair.com is a domain website project for an automotive transmission repair business. Detailed project documentation and screenshots are still to be added — what is shown here is the intended structure for a local automotive service site, not a claim about a live client website.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "affordabletransmissionrepair.com is a live website I designed and built on my own domain for an automotive transmission repair business. It is structured the way a local service site should be: what gets repaired, proof of process, and a free-estimate request that is never more than one tap away.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Make a transmission repair service easy to understand and easy to contact: what is repaired, where, and how to ask for a price.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "High-contrast automotive direction: condensed display headings, a red accent used only for actions, workshop photography behind the hero, and service cards that stay readable in a garage on a phone.",
+    developmentApproach:
+      "Component-driven front-end with reusable service and FAQ blocks, semantic markup, sticky call and estimate actions, and image handling tuned for a fast first render.",
     keySections: [
       "Home with service summary",
       "Transmission services",
       "Service area",
       "Request a quote / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first: stacked service cards, tap-to-call in the header, and a four-column service grid from large screens upward.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Transmission repair, diagnosed properly",
       tagline: "Rebuilds, diagnostics and fluid service",
@@ -257,8 +325,24 @@ export const projects: Project[] = [
       blocks: ["Diagnostics", "Rebuilds", "Fluid service"],
       tone: "automotive",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: atr1.url,
+        alt: "affordabletransmissionrepair.com homepage hero with workshop photography",
+        caption: "Homepage — hero, trust details and estimate call to action.",
+      },
+      {
+        src: atr2.url,
+        alt: "affordabletransmissionrepair.com transmission service cards",
+        caption: "Service breakdown by repair type.",
+      },
+    ],
+    liveUrl: "https://affordabletransmissionrepair.com",
+    mobileShot: {
+      src: atrM.url,
+      alt: "affordabletransmissionrepair.com homepage on a phone",
+    },
+    status: "live",
   },
   {
     title: "Floor Coating Contractors",
@@ -269,12 +353,14 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for floor coating contractors, built around coating types, project photography space and quote requests.",
     overview:
-      "floorcoatingcontractors.com is a domain website project for a floor coating and resin flooring contractor. Full project details and screenshots are still to be added; the presentation here shows the intended structure of the site rather than a live client engagement.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "floorcoatingcontractors.com is a live website I designed and built on my own domain for a floor coating and resin flooring contractor. Coating systems are explained plainly with pricing and timelines, and finished-floor photography carries the credibility.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Explain coating options plainly, leave room for real finished-floor photography, and keep a quote request one tap away.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "Dark, industrial direction with a single orange action colour, heavy sans headings, and coating cards that pair each system with its price per square foot and install time.",
+    developmentApproach:
+      "Front-end build with reusable coating, gallery and service-area blocks, semantic markup, and a persistent free-estimate call to action.",
     keySections: [
       "Home with coating overview",
       "Coating types (epoxy, polyaspartic, sealing)",
@@ -282,8 +368,9 @@ export const projects: Project[] = [
       "Project gallery",
       "Quote request / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first single-column reading with stacked coating cards, expanding to a four-column system grid and a mosaic project gallery on desktop.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Durable floor coatings for home and shop",
       tagline: "Epoxy, polyaspartic and concrete sealing",
@@ -292,8 +379,24 @@ export const projects: Project[] = [
       blocks: ["Epoxy", "Polyaspartic", "Sealing"],
       tone: "industrial",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: fcc1.url,
+        alt: "floorcoatingcontractors.com project gallery of finished coated floors",
+        caption: "Project gallery of finished floors.",
+      },
+      {
+        src: fcc2.url,
+        alt: "floorcoatingcontractors.com coating service cards with pricing and timelines",
+        caption: "Coating systems with pricing and timelines.",
+      },
+    ],
+    liveUrl: "https://floorcoatingcontractors.com",
+    mobileShot: {
+      src: fccM.url,
+      alt: "floorcoatingcontractors.com coating systems section on a phone",
+    },
+    status: "live",
   },
   {
     title: "Home Furnace Replacement",
@@ -304,12 +407,14 @@ export const projects: Project[] = [
     summary:
       "A domain-based website project for furnace replacement and heating services, organised around system options and booking an estimate.",
     overview:
-      "homefurnacereplacement.com is a domain website project for a residential heating and furnace replacement business. Detailed documentation, technologies and screenshots are still to be added — this page presents the intended structure, not a live client website.",
-    role: "Domain website project — concept and structure. Full details to be added.",
+      "homefurnacereplacement.com is a live website I designed and built on my own domain for residential furnace replacement and heating services. It walks a homeowner from the repair-or-replace question to booking an in-home estimate.",
+    role: "Concept, UI/UX design, front-end development, on-page SEO.",
     objective:
       "Help a homeowner decide whether to repair or replace, then make booking an in-home estimate the obvious next step.",
-    designApproach: PLACEHOLDER_TEXT,
-    developmentApproach: PLACEHOLDER_TEXT,
+    designApproach:
+      "Clean, trust-led HVAC direction: navy and red on white, benefit cards with plain-language copy, licensing details near the headline, and installation photography beside the hero.",
+    developmentApproach:
+      "Front-end build with reusable benefit, service and FAQ blocks, an emergency notice bar, semantic markup, and quote actions repeated at every scroll depth.",
     keySections: [
       "Home with heating service summary",
       "Furnace replacement",
@@ -317,8 +422,9 @@ export const projects: Project[] = [
       "Service area",
       "Book an estimate / contact",
     ],
-    responsive: PLACEHOLDER_TEXT,
-    technologies: [],
+    responsive:
+      "Mobile-first stacked layout with tap-to-call, moving to a split hero and four-column benefit grid on desktop.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Responsive Design", "Local SEO Fundamentals"],
     preview: {
       headline: "Furnace replacement without the guesswork",
       tagline: "Heating systems, installed and serviced",
@@ -327,8 +433,24 @@ export const projects: Project[] = [
       blocks: ["Replacement", "Repair or replace", "Maintenance"],
       tone: "heat",
     },
-    gallery: [],
-    status: "placeholder",
+    gallery: [
+      {
+        src: hfr1.url,
+        alt: "homefurnacereplacement.com homepage hero with furnace installation photography",
+        caption: "Homepage — hero and free-estimate call to action.",
+      },
+      {
+        src: hfr2.url,
+        alt: "homefurnacereplacement.com benefits and furnace service sections",
+        caption: "Replacement benefits and service breakdown.",
+      },
+    ],
+    liveUrl: "https://homefurnacereplacement.com",
+    mobileShot: {
+      src: hfrM.url,
+      alt: "homefurnacereplacement.com homepage on a phone",
+    },
+    status: "live",
   },
 ];
 

@@ -97,7 +97,15 @@ export function CaseStudy({
               <SitePreview preview={project.preview} domain={project.domain} compact />
             ) : undefined}
           </BrowserFrame>
-          <PhoneFrame title="Mobile layout" detail="Mobile presentation of the same page" />
+          <PhoneFrame
+            title="Mobile layout"
+            detail={
+              project.mobileShot
+                ? "The same page on a phone"
+                : "Mobile presentation of the same page"
+            }
+            image={project.mobileShot}
+          />
         </div>
       </Section>
 
