@@ -16,8 +16,6 @@ import { Route as SeoRouteImport } from './routes/seo'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
-import { Route as AppsIndexRouteImport } from './routes/apps.index'
-import { Route as AppsTeleporteurRouteImport } from './routes/apps.teleporteur'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 
@@ -56,16 +54,6 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppsIndexRoute = AppsIndexRouteImport.update({
-  id: '/apps/',
-  path: '/apps/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppsTeleporteurRoute = AppsTeleporteurRouteImport.update({
-  id: '/apps/teleporteur',
-  path: '/apps/teleporteur',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const WorkIndexRoute = WorkIndexRouteImport.update({
   id: '/work/',
   path: '/work/',
@@ -85,9 +73,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thank-you': typeof ThankYouRoute
-  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
-  '/apps/': typeof AppsIndexRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRoutesByTo {
@@ -98,9 +84,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thank-you': typeof ThankYouRoute
-  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
-  '/apps': typeof AppsIndexRoute
   '/work': typeof WorkIndexRoute
 }
 export interface FileRoutesById {
@@ -112,9 +96,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/thank-you': typeof ThankYouRoute
-  '/apps/teleporteur': typeof AppsTeleporteurRoute
   '/work/$slug': typeof WorkSlugRoute
-  '/apps/': typeof AppsIndexRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRouteTypes {
@@ -127,9 +109,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/thank-you'
-    | '/apps/teleporteur'
     | '/work/$slug'
-    | '/apps/'
     | '/work/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -140,9 +120,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/thank-you'
-    | '/apps/teleporteur'
     | '/work/$slug'
-    | '/apps'
     | '/work'
   id:
     | '__root__'
@@ -153,9 +131,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/thank-you'
-    | '/apps/teleporteur'
     | '/work/$slug'
-    | '/apps/'
     | '/work/'
   fileRoutesById: FileRoutesById
 }
@@ -167,9 +143,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ThankYouRoute: typeof ThankYouRoute
-  AppsTeleporteurRoute: typeof AppsTeleporteurRoute
   WorkSlugRoute: typeof WorkSlugRoute
-  AppsIndexRoute: typeof AppsIndexRoute
   WorkIndexRoute: typeof WorkIndexRoute
 }
 
@@ -224,20 +198,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/apps/': {
-      id: '/apps/'
-      path: '/apps'
-      fullPath: '/apps/'
-      preLoaderRoute: typeof AppsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apps/teleporteur': {
-      id: '/apps/teleporteur'
-      path: '/apps/teleporteur'
-      fullPath: '/apps/teleporteur'
-      preLoaderRoute: typeof AppsTeleporteurRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/work/': {
       id: '/work/'
       path: '/work'
@@ -263,9 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ThankYouRoute: ThankYouRoute,
-  AppsTeleporteurRoute: AppsTeleporteurRoute,
   WorkSlugRoute: WorkSlugRoute,
-  AppsIndexRoute: AppsIndexRoute,
   WorkIndexRoute: WorkIndexRoute,
 }
 export const routeTree = rootRouteImport
