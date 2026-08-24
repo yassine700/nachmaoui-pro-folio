@@ -2,10 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Hero } from "@/components/home/Hero";
 import { WorkPreview } from "@/components/home/WorkPreview";
-import { SeoPreview } from "@/components/home/SeoPreview";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
-import { AboutPreview } from "@/components/home/AboutPreview";
-import { ContactCta } from "@/components/shared/ContactCta";
+import { HomeContact } from "@/components/home/HomeContact";
 
 const TITLE = "Yassine Nachmaoui — Websites for Local Businesses | Nachmaoui.com";
 const DESCRIPTION =
@@ -30,10 +28,8 @@ function Index() {
     <>
       <Hero />
       <WorkPreview />
-      <SeoPreview />
       <ServicesPreview />
-      <AboutPreview />
-      <ContactCta />
+      <HomeContact />
     </>
   );
 }

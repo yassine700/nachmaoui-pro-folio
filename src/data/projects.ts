@@ -199,7 +199,6 @@ export const projects: Project[] = [
       src: goutdeparfumM.url,
       alt: "GoutDeParfum.com homepage on a phone",
     },
-    featured: true,
     status: "live",
   },
   {
@@ -256,6 +255,7 @@ export const projects: Project[] = [
       src: gpmM.url,
       alt: "GlobalPortfolioManagement.com homepage on a phone",
     },
+    featured: true,
     status: "live",
   },
   {
@@ -313,6 +313,7 @@ export const projects: Project[] = [
       alt: "OutdoorStagingCompany.com homepage on a phone",
     },
     liveUrl: "https://outdoorstagingcompany.com",
+    featured: true,
     status: "live",
   },
   {
@@ -366,6 +367,7 @@ export const projects: Project[] = [
       src: atrM.url,
       alt: "affordabletransmissionrepair.com homepage on a phone",
     },
+    featured: true,
     status: "live",
   },
   {
