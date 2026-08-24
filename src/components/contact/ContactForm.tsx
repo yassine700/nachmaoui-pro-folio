@@ -152,9 +152,9 @@ export function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             disabled={isSubmitting}
             placeholder="Your name"
-            className={`mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
               errors.name
-                ? "border-destructive focus:border-destructive focus:ring-destructive"
+                ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
                 : ""
             }`}
           />
@@ -188,9 +188,9 @@ export function ContactForm() {
             aria-describedby={errors.email ? "email-error" : undefined}
             disabled={isSubmitting}
             placeholder="you@company.com"
-            className={`mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
               errors.email
-                ? "border-destructive focus:border-destructive focus:ring-destructive"
+                ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
                 : ""
             }`}
           />
@@ -218,7 +218,7 @@ export function ContactForm() {
             onChange={(e) => setCompany(e.target.value)}
             disabled={isSubmitting}
             placeholder="Business or trade name"
-            className="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50"
+            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40"
           />
         </div>
 
@@ -239,7 +239,7 @@ export function ContactForm() {
               if (errors.projectType) clearError("projectType");
             }}
             disabled={isSubmitting}
-            className="mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50"
+            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40"
           >
             {PROJECT_TYPES.map((type) => (
               <option key={type} value={type} className="bg-background text-foreground py-2">
@@ -277,9 +277,9 @@ export function ContactForm() {
           aria-describedby={errors.message ? "message-error" : undefined}
           disabled={isSubmitting}
           placeholder="Tell me about your business, the pages you need, and any specific goals or timelines..."
-          className={`mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
+          className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
             errors.message
-              ? "border-destructive focus:border-destructive focus:ring-destructive"
+              ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
               : ""
           }`}
         />
@@ -295,7 +295,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-zinc-100 px-8 py-3.5 text-sm font-medium tracking-wide text-zinc-950 transition-all hover:bg-zinc-200 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200 dark:active:scale-[0.99]"
         >
           {isSubmitting ? (
             <>
