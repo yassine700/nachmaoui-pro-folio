@@ -133,7 +133,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Name <span className="text-primary">*</span>
           </label>
@@ -152,10 +152,10 @@ export function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             disabled={isSubmitting}
             placeholder="Your name"
-            className={`mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
               errors.name
                 ? "border-destructive focus:border-destructive focus:ring-destructive"
-                : "border-hairline"
+                : ""
             }`}
           />
           {errors.name && (
@@ -169,7 +169,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Email <span className="text-primary">*</span>
           </label>
@@ -188,10 +188,10 @@ export function ContactForm() {
             aria-describedby={errors.email ? "email-error" : undefined}
             disabled={isSubmitting}
             placeholder="you@company.com"
-            className={`mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
               errors.email
                 ? "border-destructive focus:border-destructive focus:ring-destructive"
-                : "border-hairline"
+                : ""
             }`}
           />
           {errors.email && (
