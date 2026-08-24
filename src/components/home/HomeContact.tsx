@@ -83,8 +83,8 @@ export function HomeContact() {
   }
 
   const inputClass = (hasError: boolean) =>
-    `mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
-      hasError ? "border-destructive focus:border-destructive focus:ring-destructive" : "border-hairline"
+    `mt-2.5 w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-base text-foreground placeholder:text-zinc-400 transition-all hover:border-white/20 focus:border-white/40 focus:bg-white/[0.02] focus:outline-none focus:ring-1 focus:ring-white/40 disabled:opacity-50 ${
+      hasError ? "border-destructive focus:border-destructive focus:ring-destructive" : ""
     }`;
 
   return (
@@ -151,7 +151,7 @@ export function HomeContact() {
             <div>
               <label
                 htmlFor="home-name"
-                className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+                className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
               >
                 Name <span className="text-primary">*</span>
               </label>
@@ -182,7 +182,7 @@ export function HomeContact() {
             <div>
               <label
                 htmlFor="home-email"
-                className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+                className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
               >
                 Email <span className="text-primary">*</span>
               </label>
@@ -214,7 +214,7 @@ export function HomeContact() {
           <div className="mt-6">
             <label
               htmlFor="home-message"
-              className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+              className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
             >
               Message <span className="text-primary">*</span>
             </label>
@@ -244,9 +244,9 @@ export function HomeContact() {
           <div className="mt-8">
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
-            >
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-zinc-100 px-8 py-3.5 text-sm font-medium tracking-wide text-zinc-950 transition-all hover:bg-zinc-200 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+          >
               {isSubmitting ? (
                 <>
                   <Loader2 className="size-4 animate-spin" aria-hidden="true" />
