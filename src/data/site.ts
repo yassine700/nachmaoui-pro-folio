@@ -1,6 +1,9 @@
 // TODO: replace with your real email address before sending this portfolio to clients.
 export const CONTACT_EMAIL = "yassine@nachmaoui.com";
 
+export const CONTACT_PHONE = "+212 6 08 00 19 23";
+export const CONTACT_PHONE_HREF = "tel:+212608001923";
+
 export const SERVICES = [
   {
     title: "Website Design",

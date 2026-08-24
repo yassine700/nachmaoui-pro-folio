@@ -5,7 +5,7 @@ export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name (at least 2 characters)."),
   email: z.string().trim().email("Please enter a valid email address."),
   company: z.string().trim().optional(),
-  projectType: z.string().trim().min(1, "Please select a project type."),
+  projectType: z.string().trim().min(1, "Please select a project type.").optional(),
   message: z.string().trim().min(10, "Please add a few more details (at least 10 characters)."),
   // Honeypot field — bots fill this out, real users don't see it
   website: z.string().optional(),
@@ -113,7 +113,7 @@ export const submitContactForm = createServerFn({ method: "POST" })
         `Name: ${data.name}`,
         `Email: ${data.email}`,
         `Company: ${data.company || "Not provided"}`,
-        `Project type: ${data.projectType}`,
+        `Project type: ${data.projectType || "Not specified"}`,
         `Date: ${submissionDate} (UTC)`,
         "",
         "Message:",
