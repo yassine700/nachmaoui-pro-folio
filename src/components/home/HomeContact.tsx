@@ -83,8 +83,8 @@ export function HomeContact() {
   }
 
   const inputClass = (hasError: boolean) =>
-    `mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
-      hasError ? "border-destructive focus:border-destructive focus:ring-destructive" : "border-hairline"
+    `mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
+      hasError ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive" : ""
     }`;
 
   return (
@@ -121,7 +121,7 @@ export function HomeContact() {
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="self-start rounded-2xl border border-hairline bg-card/80 p-6 shadow-xs sm:p-8"
+          className="self-start rounded-2xl border border-hairline bg-card/80 p-6 shadow-xs sm:p-8 dark:border-white/10 dark:bg-white/[0.02] dark:backdrop-blur-sm"
         >
           {serverError && (
             <div
@@ -151,7 +151,7 @@ export function HomeContact() {
             <div>
               <label
                 htmlFor="home-name"
-                className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+                className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
               >
                 Name <span className="text-primary">*</span>
               </label>
@@ -182,7 +182,7 @@ export function HomeContact() {
             <div>
               <label
                 htmlFor="home-email"
-                className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+                className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
               >
                 Email <span className="text-primary">*</span>
               </label>
@@ -214,7 +214,7 @@ export function HomeContact() {
           <div className="mt-6">
             <label
               htmlFor="home-message"
-              className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+              className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
             >
               Message <span className="text-primary">*</span>
             </label>
@@ -244,9 +244,9 @@ export function HomeContact() {
           <div className="mt-8">
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
-            >
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200 dark:active:scale-[0.99]"
+          >
               {isSubmitting ? (
                 <>
                   <Loader2 className="size-4 animate-spin" aria-hidden="true" />

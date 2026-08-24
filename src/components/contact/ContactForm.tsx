@@ -102,7 +102,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-2xl border border-hairline bg-card/80 p-6 shadow-xs sm:p-8 md:p-10"
+      className="rounded-2xl border border-hairline bg-card/80 p-6 shadow-xs sm:p-8 md:p-10 dark:border-white/10 dark:bg-white/[0.02] dark:backdrop-blur-sm"
     >
       {serverError && (
         <div
@@ -133,7 +133,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Name <span className="text-primary">*</span>
           </label>
@@ -152,10 +152,10 @@ export function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             disabled={isSubmitting}
             placeholder="Your name"
-            className={`mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
               errors.name
-                ? "border-destructive focus:border-destructive focus:ring-destructive"
-                : "border-hairline"
+                ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
+                : ""
             }`}
           />
           {errors.name && (
@@ -169,7 +169,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Email <span className="text-primary">*</span>
           </label>
@@ -188,10 +188,10 @@ export function ContactForm() {
             aria-describedby={errors.email ? "email-error" : undefined}
             disabled={isSubmitting}
             placeholder="you@company.com"
-            className={`mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
+            className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
               errors.email
-                ? "border-destructive focus:border-destructive focus:ring-destructive"
-                : "border-hairline"
+                ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
+                : ""
             }`}
           />
           {errors.email && (
@@ -205,7 +205,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="company"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Company <span className="text-muted-foreground font-normal">(optional)</span>
           </label>
@@ -218,7 +218,7 @@ export function ContactForm() {
             onChange={(e) => setCompany(e.target.value)}
             disabled={isSubmitting}
             placeholder="Business or trade name"
-            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50"
+            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40"
           />
         </div>
 
@@ -226,7 +226,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="projectType"
-            className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+            className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
           >
             Project type <span className="text-primary">*</span>
           </label>
@@ -239,7 +239,7 @@ export function ContactForm() {
               if (errors.projectType) clearError("projectType");
             }}
             disabled={isSubmitting}
-            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50"
+            className="mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40"
           >
             {PROJECT_TYPES.map((type) => (
               <option key={type} value={type} className="bg-background text-foreground py-2">
@@ -259,7 +259,7 @@ export function ContactForm() {
       <div className="mt-6">
         <label
           htmlFor="message"
-          className="block text-xs font-medium uppercase tracking-[0.14em] text-foreground"
+          className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
         >
           Message / Project Details <span className="text-primary">*</span>
         </label>
@@ -277,10 +277,10 @@ export function ContactForm() {
           aria-describedby={errors.message ? "message-error" : undefined}
           disabled={isSubmitting}
           placeholder="Tell me about your business, the pages you need, and any specific goals or timelines..."
-          className={`mt-2.5 w-full rounded-lg border bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 ${
+          className={`mt-2.5 w-full rounded-lg border border-hairline bg-surface/50 px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/60 transition-all hover:border-foreground/40 focus:border-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-foreground disabled:opacity-50 dark:border-white/10 dark:bg-white/[0.04] dark:placeholder:text-zinc-400 dark:hover:border-white/20 dark:focus:border-white/40 dark:focus:bg-white/[0.02] dark:focus:ring-white/40 ${
             errors.message
-              ? "border-destructive focus:border-destructive focus:ring-destructive"
-              : "border-hairline"
+              ? "border-destructive focus:border-destructive focus:ring-destructive dark:border-destructive dark:focus:border-destructive dark:focus:ring-destructive"
+              : ""
           }`}
         />
         {errors.message && (
@@ -295,7 +295,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-foreground px-8 py-3.5 text-sm font-medium tracking-wide text-background transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200 dark:active:scale-[0.99]"
         >
           {isSubmitting ? (
             <>
