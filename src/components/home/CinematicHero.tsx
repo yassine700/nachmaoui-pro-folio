@@ -56,10 +56,14 @@ export function CinematicHero() {
               <HeroStill />
             )}
           </ClientOnly>
-          {/* Soft radial darkening so centered type stays legible over chrome. */}
+          {/* Vignette + soft center scrim so centered type stays legible. */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_18%,var(--scene)_78%)] opacity-90"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--scene)_0%,transparent_58%)] opacity-55"
           />
         </motion.div>
 
