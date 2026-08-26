@@ -22,10 +22,10 @@ function LiquidMetalMesh({ progress, compact }: SceneProps) {
     if (group.current) {
       group.current.rotation.y = t * 0.16 + p * 2.4;
       group.current.rotation.x = Math.sin(t * 0.22) * 0.12 + p * 0.6;
-      const scale = 1 + Math.sin(t * 0.6) * 0.015 - p * 0.35;
-      group.current.scale.setScalar(Math.max(scale, 0.35));
-      group.current.position.x = p * 1.6;
-      group.current.position.y = -p * 0.9;
+      const scale = 1 + Math.sin(t * 0.6) * 0.015 - p * 0.3;
+      group.current.scale.setScalar(Math.max(scale, 0.4));
+      group.current.position.x = 1.7 + p * 1.1;
+      group.current.position.y = 0.15 - p * 1.1;
     }
 
     if (distortRef.current) {
