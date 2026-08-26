@@ -1,7 +1,6 @@
-import { Suspense, lazy, useEffect, useRef } from "react";
-import { Link } from "@tanstack/react-router";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import { ClientOnly, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { ClientOnly } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Container } from "../layout/Container";
 import { HeroStill } from "../three/HeroStill";
@@ -14,8 +13,8 @@ import { homepageQuery, sanityClient, type Homepage } from "@/integrations/sanit
 const HeroScene = lazy(() => import("../three/HeroScene"));
 
 /**
- * Full-screen cinematic hero: a fixed liquid-metal scene behind absolutely
- * positioned editorial typography. A single scroll source (the section's own
+ * Full-screen cinematic hero: a sticky liquid-metal scene behind absolutely
+ * positioned editorial typography. A single scroll source (this section's own
  * progress) drives both the 3D object and the text overlays.
  */
 export function CinematicHero() {
@@ -38,11 +37,11 @@ export function CinematicHero() {
     offset: ["start start", "end start"],
   });
 
-  const headlineOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
+  const headlineOpacity = useTransform(scrollYProgress, [0, 0.42], [1, 0]);
   const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, -90]);
-  const secondOpacity = useTransform(scrollYProgress, [0.4, 0.62, 0.92], [0, 1, 0]);
-  const secondY = useTransform(scrollYProgress, [0.4, 1], [40, -40]);
-  const sceneOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.7, 0]);
+  const secondOpacity = useTransform(scrollYProgress, [0.42, 0.62, 0.92], [0, 1, 0]);
+  const secondY = useTransform(scrollYProgress, [0.42, 1], [50, -40]);
+  const sceneOpacity = useTransform(scrollYProgress, [0, 0.82, 1], [1, 0.65, 0]);
 
   return (
     <div ref={stageRef} className="relative h-[220vh] bg-scene text-scene-foreground">
@@ -72,20 +71,20 @@ export function CinematicHero() {
               className="pointer-events-auto max-w-3xl"
             >
               <p className="eyebrow text-scene-muted">{eyebrow}</p>
-              <h1 className="mt-6 text-[2.6rem] leading-[1.02] tracking-[-0.01em] uppercase sm:text-[3.4rem] md:text-[4.4rem] lg:text-[5.4rem]">
+              <h1 className="mt-6 text-[2.6rem] leading-[1.02] tracking-[-0.01em] uppercase sm:text-[3.4rem] md:text-[4.4rem] lg:text-[5.2rem]">
                 {title}
               </h1>
               <p className="mt-7 max-w-xl text-base leading-relaxed text-scene-muted sm:text-lg">
                 {subtitle}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <Link
-                  to="/contact"
-                  className="editorial-link text-xs tracking-[0.22em] uppercase"
-                >
+                <Link to="/contact" className="editorial-link text-xs tracking-[0.22em] uppercase">
                   {ctaLabel} <span aria-hidden="true">&rarr;</span>
                 </Link>
-                <Link to="/work" className="editorial-link text-xs tracking-[0.22em] text-scene-muted uppercase">
+                <Link
+                  to="/work"
+                  className="editorial-link text-xs tracking-[0.22em] text-scene-muted uppercase"
+                >
                   View recent projects <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
@@ -112,9 +111,19 @@ export function CinematicHero() {
   );
 }
 
+/** Small "Scroll" cue that fades out as soon as the user starts scrolling. */
 function ScrollHint() {
-  const [visible, setVisible] = useHideOnScroll();
-  useEffect(() => setVisible, [setVisible]);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    function onScroll() {
+      setVisible(window.scrollY < 120);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div
       aria-hidden="true"
@@ -125,63 +134,4 @@ function ScrollHint() {
       Scroll
     </div>
   );
-}
-
-function useHideOnScroll() {
-  const ref = useRef(true);
-  const [, force] = useReducerLike();
-  useEffect(() => {
-    function onScroll() {
-      const next = window.scrollY < 120;
-      if (next !== ref.current) {
-        ref.current = next;
-        force();
-      }
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [force]);
-  return [ref.current, force] as const;
-}
-
-function useReducerLike() {
-  const [tick, setTick] = useStateTick();
-  return [tick, setTick] as const;
-}
-
-function useStateTick() {
-  const ref = useRef(0);
-  const [, set] = useRefState();
-  return [ref.current, () => set((ref.current += 1))] as const;
-}
-
-function useRefState() {
-  const state = useRef(0);
-  const [, setValue] = useSimpleState();
-  return [state.current, setValue] as const;
-}
-
-function useSimpleState() {
-  const [value, setValue] = useStateShim();
-  return [value, setValue] as const;
-}
-
-function useStateShim(): [number, (n: number) => void] {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [value, setValue] = useRealState();
-  return [value, setValue];
-}
-
-function useRealState(): [number, (n: number) => void] {
-  const [value, setValue] = useStateImpl(0);
-  return [value, setValue];
-}
-
-function useStateImpl<T>(initial: T) {
-  return useReactState(initial);
-}
-
-function useReactState<T>(initial: T) {
-  return reactUseState(initial);
 }
