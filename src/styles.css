@@ -27,6 +27,10 @@
   --color-hairline: var(--hairline);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
+  --color-scene: var(--scene);
+  --color-scene-foreground: var(--scene-foreground);
+  --color-scene-muted: var(--scene-muted);
+  --color-chrome: var(--chrome);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
