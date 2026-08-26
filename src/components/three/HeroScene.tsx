@@ -57,7 +57,7 @@ export default function HeroScene({ progress, compact }: SceneProps) {
     <Canvas
       className="absolute inset-0"
       dpr={[1, 1.5]}
-      camera={{ position: [0, 0, 4.2], fov: 42 }}
+      camera={{ position: [0, 0, 6.2], fov: 40 }}
       gl={{ antialias: false, powerPreference: "high-performance" }}
     >
       <ambientLight intensity={0.35} />
