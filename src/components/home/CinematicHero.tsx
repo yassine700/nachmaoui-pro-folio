@@ -59,6 +59,10 @@ export function CinematicHero() {
           </ClientOnly>
           <div
             aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-scene via-scene/70 to-transparent md:w-3/4"
+          />
+          <div
+            aria-hidden="true"
             className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-scene"
           />
         </motion.div>
