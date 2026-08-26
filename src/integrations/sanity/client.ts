@@ -20,6 +20,8 @@ export type Homepage = {
   eyebrow?: string;
   title: string;
   subtitle: string;
+  /** Primary hero call-to-action label, e.g. "INITIALIZE COLLABORATION". */
+  ctaLabel?: string;
   profileImage?: SanityImageSource & { alt?: string };
   seoTitle?: string;
   seoDescription?: string;
@@ -29,6 +31,7 @@ export const homepageQuery = `*[_type == "homepage"][0]{
   eyebrow,
   title,
   subtitle,
+  ctaLabel,
   profileImage,
   seoTitle,
   seoDescription
