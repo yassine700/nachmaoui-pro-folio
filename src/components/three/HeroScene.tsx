@@ -5,7 +5,7 @@ import type { MotionValue } from "motion/react";
 import type { Group } from "three";
 import { SCENE_DETAIL } from "./heroContent";
 
-type SceneProps = { progress: MotionValue<number>; compact?: boolean };
+type SceneProps = { progress: MotionValue<number>; compact?: boolean | undefined };
 
 /**
  * The liquid-metal mesh. Scroll progress is read from a MotionValue inside
