@@ -83,7 +83,7 @@ export default function HeroScene({ progress, compact }: SceneProps) {
       gl={{ antialias: false, powerPreference: "high-performance", stencil: false, depth: true }}
       // Pointer events are captured on the window so tracking works even
       // though the typography layer sits above the canvas.
-      eventSource={typeof document !== "undefined" ? document.documentElement : undefined}
+      eventSource={document.documentElement}
       eventPrefix="client"
     >
       <ambientLight intensity={0.35} />
