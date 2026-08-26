@@ -13,8 +13,8 @@ import { homepageQuery, sanityClient, type Homepage } from "@/integrations/sanit
 const HeroScene = lazy(() => import("../three/HeroScene"));
 
 /**
- * Full-screen cinematic hero: a sticky liquid-metal scene behind absolutely
- * positioned editorial typography. A single scroll source (this section's own
+ * Full-screen cinematic hero: a centered liquid-metal scene ringed by
+ * minimal editorial typography. One scroll source (this section's own
  * progress) drives both the 3D object and the text overlays.
  */
 export function CinematicHero() {
@@ -29,7 +29,6 @@ export function CinematicHero() {
 
   const eyebrow = data?.eyebrow || HERO_FALLBACK.eyebrow;
   const title = data?.title || HERO_FALLBACK.title;
-  const subtitle = data?.subtitle || HERO_FALLBACK.subtitle;
   const ctaLabel = data?.ctaLabel || HERO_FALLBACK.ctaLabel;
 
   const { scrollYProgress } = useScroll({
@@ -37,8 +36,8 @@ export function CinematicHero() {
     offset: ["start start", "end start"],
   });
 
-  const headlineOpacity = useTransform(scrollYProgress, [0, 0.42], [1, 0]);
-  const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, -90]);
+  const headlineOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, -80]);
   const secondOpacity = useTransform(scrollYProgress, [0.42, 0.62, 0.92], [0, 1, 0]);
   const secondY = useTransform(scrollYProgress, [0.42, 1], [50, -40]);
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.82, 1], [1, 0.65, 0]);
@@ -57,31 +56,31 @@ export function CinematicHero() {
               <HeroStill />
             )}
           </ClientOnly>
+          {/* Soft radial darkening so centered type stays legible over chrome. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-full bg-gradient-to-r from-scene via-scene/70 to-transparent md:w-3/4"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-scene"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_18%,var(--scene)_78%)] opacity-90"
           />
         </motion.div>
 
-        {/* Overlay typography */}
-        <div className="pointer-events-none absolute inset-0 flex items-center">
-          <Container>
+        {/* Overlay typography — eyebrow above, headline and actions below */}
+        <div className="pointer-events-none absolute inset-0">
+          <Container className="flex h-full flex-col items-center justify-between py-24 text-center md:py-28">
+            <motion.p
+              style={{ opacity: headlineOpacity }}
+              className="eyebrow text-scene-muted"
+            >
+              {eyebrow}
+            </motion.p>
+
             <motion.div
               style={{ opacity: headlineOpacity, y: headlineY }}
-              className="pointer-events-auto max-w-3xl"
+              className="pointer-events-auto flex flex-col items-center gap-12 md:gap-16"
             >
-              <p className="eyebrow text-scene-muted">{eyebrow}</p>
-              <h1 className="mt-6 text-[2.6rem] leading-[1.02] tracking-[-0.01em] uppercase sm:text-[3.4rem] md:text-[4.4rem] lg:text-[5.2rem]">
+              <h1 className="max-w-4xl text-[1.85rem] leading-[1.08] tracking-[-0.01em] uppercase sm:text-[2.5rem] md:text-[3.1rem] lg:text-[3.6rem]">
                 {title}
               </h1>
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-scene-muted sm:text-lg">
-                {subtitle}
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
                 <Link to="/contact" className="editorial-link text-xs tracking-[0.22em] uppercase">
                   {ctaLabel} <span aria-hidden="true">&rarr;</span>
                 </Link>
@@ -93,13 +92,18 @@ export function CinematicHero() {
                 </Link>
               </div>
             </motion.div>
+
+            <div aria-hidden="true" className="h-4" />
           </Container>
         </div>
 
         {/* Second scroll beat */}
         <div className="pointer-events-none absolute inset-0 flex items-center">
           <Container>
-            <motion.div style={{ opacity: secondOpacity, y: secondY }} className="max-w-2xl">
+            <motion.div
+              style={{ opacity: secondOpacity, y: secondY }}
+              className="mx-auto max-w-2xl text-center"
+            >
               <p className="eyebrow text-scene-muted">What I do</p>
               <p className="mt-6 font-display text-3xl leading-[1.12] md:text-5xl">
                 Web design, responsive development and SEO foundations —{" "}
