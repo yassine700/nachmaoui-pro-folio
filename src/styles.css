@@ -125,6 +125,10 @@
   --surface-foreground: oklch(0.984 0.003 247.858);
   --ink: oklch(0.13 0.02 264);
   --ink-foreground: oklch(0.97 0.005 90);
+  --scene: oklch(0.115 0.008 260);
+  --scene-foreground: oklch(0.975 0.004 250);
+  --scene-muted: oklch(0.72 0.014 255);
+  --chrome: oklch(0.86 0.012 255);
   --hairline: oklch(1 0 0 / 12%);
   --card: oklch(0.208 0.042 265.755);
   --card-foreground: oklch(0.984 0.003 247.858);
