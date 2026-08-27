@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "../layout/Container";
-import profileAsset from "@/assets/yassine-profile.jpg.asset.json";
+import profileAsset from "@/assets/nachmaoui-portrait.jpg.asset.json";
 
 /**
  * Editorial homepage hero.
  * Left — minimal typographic statement and actions.
- * Right — full-color portrait panel with ambient warmth.
+ * Right — full-color portrait panel with warm ambient glow.
  */
 export function Hero() {
   return (
@@ -18,13 +18,13 @@ export function Hero() {
         N
       </span>
 
-      {/* warm ambient glow behind portrait */}
+      {/* warm amber glow behind portrait to match the photo's natural tones */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-1/2 h-[70vh] w-[70vh] -translate-y-1/2 rounded-full opacity-40 blur-[120px]"
+        className="pointer-events-none absolute -right-24 top-1/2 h-[65vh] w-[65vh] -translate-y-1/2 rounded-full opacity-35 blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.55 0.16 35) 0%, oklch(0.35 0.12 20) 45%, transparent 70%)",
+            "radial-gradient(circle, oklch(0.62 0.14 80) 0%, oklch(0.45 0.1 60) 45%, transparent 70%)",
         }}
       />
 
@@ -91,16 +91,10 @@ export function Hero() {
                 loading="eager"
               />
 
-              {/* bottom fade into scene */}
+              {/* gentle bottom fade to blend with the dark scene */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-scene via-scene/40 to-transparent"
-              />
-
-              {/* subtle warm overlay to unify with dark theme */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-oklch(55% 0.12 35 / 0.08) via-transparent to-scene/20 mix-blend-overlay"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-scene via-scene/30 to-transparent"
               />
             </div>
 
@@ -114,4 +108,5 @@ export function Hero() {
     </section>
   );
 }
+
 
