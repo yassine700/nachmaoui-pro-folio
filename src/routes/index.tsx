@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-import { CinematicHero } from "@/components/home/CinematicHero";
+import { Hero } from "@/components/home/Hero";
 import { WorkPreview } from "@/components/home/WorkPreview";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { HomeContact } from "@/components/home/HomeContact";
 
-const TITLE = "Yassine Nachmaoui — Engineering Digital Ecosystems | Nachmaoui.com";
+const TITLE = "Yassine Nachmaoui — High-Performance Web Systems That Scale";
 const DESCRIPTION =
-  "Websites, interfaces and search foundations for local businesses — designed, built and shipped in a week. Freelance web designer and developer.";
+  "No agency bloat. Clean code, custom frontends and automated growth engines — freelance web designer and developer based in Casablanca.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +38,7 @@ function Index() {
 
   return (
     <div className="bg-scene text-scene-foreground">
-      <CinematicHero />
+      <Hero />
       <WorkPreview />
       <ServicesPreview />
       <HomeContact />
